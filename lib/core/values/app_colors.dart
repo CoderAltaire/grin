@@ -19,6 +19,7 @@ class AppColors {
   static const white = Colors.white;
   static const red = Colors.red;
   static const amber = Colors.amber;
+  static const whiteBlue = Colors.blue;
 
 //Blcak colors
   static const black = Colors.black;

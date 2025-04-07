@@ -1,0 +1,2 @@
+/Users/ayubxonahmadjonov/StudioProjects/grin/android/app/.cxx/RelWithDebInfo/5p26731z/x86_64/CMakeFiles/edit_cache.dir
+/Users/ayubxonahmadjonov/StudioProjects/grin/android/app/.cxx/RelWithDebInfo/5p26731z/x86_64/CMakeFiles/rebuild_cache.dir

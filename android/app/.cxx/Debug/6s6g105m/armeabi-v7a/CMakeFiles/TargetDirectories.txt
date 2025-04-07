@@ -1,0 +1,2 @@
+/Users/ayubxonahmadjonov/StudioProjects/grin/android/app/.cxx/Debug/6s6g105m/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/ayubxonahmadjonov/StudioProjects/grin/android/app/.cxx/Debug/6s6g105m/armeabi-v7a/CMakeFiles/rebuild_cache.dir

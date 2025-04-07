@@ -91,8 +91,7 @@ class CustomButton extends StatelessWidget {
                         child: Row(
                           children: [
                             icon != null
-                                ? 
-                                SvgPicture.asset(
+                                ? SvgPicture.asset(
                                     icon ?? "",
                                     colorFilter: iconColor == null
                                         ? null

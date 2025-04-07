@@ -129,9 +129,10 @@ class CustomPrefixTextField extends StatelessWidget {
   CustomPrefixTextField(
       {super.key,
       this.textEditingController,
+      required this.labelText,
       required this.onChange,
       required this.hintText,
-      required this.prefixIcon,
+      this.prefixIcon,
       this.suffixIcon,
       this.obscure,
       this.textInputAction,
@@ -145,8 +146,9 @@ class CustomPrefixTextField extends StatelessWidget {
 
   final TextEditingController? textEditingController;
   final Function(String value) onChange;
+  final String labelText;
   final String hintText;
-  final Widget prefixIcon;
+  final Widget? prefixIcon;
   final bool readOnly;
   final Color? fillColor;
   final Widget? suffixIcon;
@@ -175,9 +177,11 @@ class CustomPrefixTextField extends StatelessWidget {
       keyboardType: textInputType,
       readOnly: readOnly,
       decoration: InputDecoration(
+        labelText: labelText,
         prefixIcon: prefixIcon,
         prefixText: prefixText,
         suffixIcon: suffixIcon,
+        suffixIconColor: AppColors.grey3,
         filled: true,
         fillColor: fillColor ?? AppColors.white,
         prefixStyle: Theme.of(context)
@@ -201,7 +205,7 @@ class CustomPrefixTextField extends StatelessWidget {
         ),
         focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
-          borderSide: BorderSide(color: AppColors.primaryColor, width: 1.2),
+          borderSide: BorderSide(color: AppColors.whiteBlue, width: 1.2),
         ),
         disabledBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -257,6 +261,8 @@ class SearchTextField extends StatelessWidget {
           .headlineSmall
           ?.copyWith(color: AppColors.black),
       decoration: InputDecoration(
+        floatingLabelBehavior: FloatingLabelBehavior.auto,
+        contentPadding: EdgeInsets.symmetric(vertical: 40.0),
         hintText: hintText,
         prefixIconConstraints: BoxConstraints(
           maxHeight: he(100),
@@ -270,7 +276,6 @@ class SearchTextField extends StatelessWidget {
                     width: he(16),
                     child: const LoadingWidget(color: AppColors.grey3)))
             : SvgPicture.asset(AppIcons.icSearch).paddingAll(12),
-        contentPadding: EdgeInsets.zero,
         filled: true,
         fillColor: AppColors.secondary2,
         border: inputBorder(),

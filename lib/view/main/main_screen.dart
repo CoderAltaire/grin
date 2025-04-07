@@ -13,6 +13,9 @@ import 'package:grin/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grin/view/main/home/home_screen.dart';
+import 'package:grin/view/main/home/my_certificate_screen.dart';
+import 'package:grin/view/main/home/my_courses_screen.dart';
+import 'package:grin/view/main/home/my_settinges_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -50,6 +53,24 @@ class _MainScreenState extends State<MainScreen>
   Widget build(BuildContext context) {
     return BlocBuilder<MainTabCubit, MainTabState>(builder: (context, state) {
       return Scaffold(
+        appBar: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text('Kelvin Klein',style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w500),),
+              SizedBox(width: wi(10)),
+              CircleAvatar(
+                backgroundImage: AssetImage("assets/images/lessons1.png"),
+
+              ),
+
+            ],
+          ),
+
+
+        ),drawer: Drawer(),
+
+
         resizeToAvoidBottomInset: false,
         extendBody: true,
         body: Stack(
@@ -59,9 +80,9 @@ class _MainScreenState extends State<MainScreen>
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 HomeScreen(),
-                HomeScreen(),
-                HomeScreen(),
-                HomeScreen(),
+                MyCoursesScreen(),
+                MyCertificateScreen(),
+                MySettingsScreen(),
               ],
             ),
           ],
@@ -91,28 +112,28 @@ class _MainScreenState extends State<MainScreen>
                   icon: AppIcons.icHome,
                   onTap: () => tabController.animateTo(0),
                   index: 0,
-                  label: S.of(context).main,
+                  label: "Home",
                 ),
                 BottomTabItem(
                   currentIndex: state.main,
                   icon: AppIcons.icCategory,
                   onTap: () => tabController.animateTo(1),
                   index: 1,
-                  label: S.of(context).strCategory,
+                  label: "My Courses"
                 ),
                 BottomTabItem(
                   currentIndex: state.main,
                   icon: AppIcons.orders,
                   onTap: () => tabController.animateTo(2),
                   index: 2,
-                  label: S.of(context).strOrders,
+                  label: 'Certificate',
                 ),
                 BottomTabItem(
                   index: 3,
                   currentIndex: state.main,
                   icon: AppIcons.icPerson,
                   onTap: () => tabController.animateTo(2),
-                  label: S.of(context).strProfile,
+                  label: "Settings",
                 ),
               ],
             ).paddingOnly(

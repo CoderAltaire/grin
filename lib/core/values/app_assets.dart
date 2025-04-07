@@ -14,6 +14,10 @@ class AppIcons {
   static const String logo = 'assets/icons/logo2.svg';
 
   static const String icSearch = 'assets/icons/icSearch.svg';
+
+  //---------------------
+  static const Icon icEye_off = Icon(Icons.visibility_off);
+  static const Icon icEye = Icon(Icons.visibility);
 }
 
 extension SvgExt on String {
@@ -35,11 +39,13 @@ extension SvgExt on String {
 
 class AppImages {
   AppImages._();
-
-  static const String imgUzbFlagBig = 'assets/image/img_uzb_flag_big.png';
-  static const String icUzFlag = 'assets/image/ic_uzb_flag.png';
-  static const String icRusFlag = 'assets/image/ic_rus_flag.png';
-  static const String logo = 'assets/image/logo.png';
-
-  static const String icEngFlag = 'assets/image/ic_eng_flag.png';
+  // static const String profileimage = 'assets/images/profile_image.png';
+  static const String imgArbFlag = 'assets/images/arabic_flag.png';
+  static const String imgEngFlag = 'assets/images/england_flag.png';
+  static const String imgKorFlag = 'assets/images/korean_flag.png';
+  static const String imgUzbFlagBig = 'assets/images/uzb_flag_big.png';
+  static const String icUzFlag = 'assets/images/ic_uzb_flag.png';
+  static const String icRusFlag = 'assets/images/ic_rus_flag.png';
+  static const String logo = 'assets/images/logo.png';
+  static const String icEngFlag = 'assets/images/ic_eng_flag.png';
 }

@@ -1,5 +1,8 @@
 class AppStrings {
   AppStrings._();
+  static const String strEmail = 'Email';
+  static const String strPassword = 'Password';
+  static const String strLogIn = 'Log In';
   static const String strHome = 'Asosiy';
   static const String strCategory = 'Kategoriya';
   static const String strOrders = 'Buyurtmalar';
@@ -203,8 +206,7 @@ class AppStrings {
       "Foydalanuvchi o'chirilgan. Iltimos, administratorga murojaat qiling.";
   static const String strHaveNotPurchased =
       "Siz ushbu mahsulotni oxirgi 1 oy ichida xarid qilmagansiz";
-  static const String strCurrentPhoneNumber ="Joriy raqam" ;
-  static const String strNewPhoneNumber ="Yangi raqam" ;
-  static const String strFindFromMap ="Xaritadan topish";
-
+  static const String strCurrentPhoneNumber = "Joriy raqam";
+  static const String strNewPhoneNumber = "Yangi raqam";
+  static const String strFindFromMap = "Xaritadan topish";
 }

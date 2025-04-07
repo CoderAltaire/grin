@@ -11,12 +11,14 @@ class TextFieldCountry extends StatelessWidget {
   const TextFieldCountry({
     super.key,
     this.validator,
+    required this.labelText,
     required this.onChangePhone,
     required this.focusNode,
     this.controller,
     this.readOnly = false,
     this.fillColor,
     this.hintText,
+    this.suffixIcon,
   });
 
   final Function(dynamic v) onChangePhone;
@@ -26,46 +28,35 @@ class TextFieldCountry extends StatelessWidget {
   final TextEditingController? controller;
   final bool readOnly;
   final String? hintText;
-
+  final String labelText;
   final Color? fillColor;
+  final Widget? suffixIcon;
   @override
   Widget build(BuildContext context) {
-    return CustomPrefixTextField(
-      inputFormatters: [
-        MaskTextInputFormatter(
-          mask: '(##) ###-##-##',
-          filter: {"#": RegExp(r'[0-9]')},
-          type: MaskAutoCompletionType.lazy,
-        )
-      ],
-      textEditingController: controller,
-      focusNode: focusNode,
-      hintText: hintText ?? S.current.strEnterYourPhone,
-      textInputAction: TextInputAction.done,
-      validator: validator,
-      readOnly: readOnly,
-      fillColor: fillColor,
-      prefixIcon: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(width: wi(12)),
-          ClipRRect(
-              borderRadius: BorderRadius.circular(3),
-              child: Image.asset(AppImages.imgUzbFlagBig, height: he(16))),
-          SizedBox(width: wi(8)),
-          Text(
-            "+998",
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall
-                ?.copyWith(color: AppColors.black),
-          ),
-          Container(height: he(21), width: wi(1), color: AppColors.secondary)
-              .paddingSymmetric(horizontal: wi(8)),
-        ],
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: he(20)),
+      child: CustomPrefixTextField(
+        labelText: labelText,
+
+        // inputFormatters: [
+        //   MaskTextInputFormatter(
+        //     mask: '(##) ###-##-##',
+        //     filter: {"#": RegExp(r'[0-9]')},
+        //     type: MaskAutoCompletionType.lazy,
+        //   )
+        // ],
+        textEditingController: controller,
+        focusNode: focusNode,
+        hintText: hintText ?? S.current.strEnterYourPhone,
+        textInputAction: TextInputAction.done,
+        validator: validator,
+        readOnly: readOnly,
+        fillColor: fillColor,
+
+        suffixIcon: suffixIcon,
+        onChange: onChangePhone,
+        textInputType: TextInputType.text,
       ),
-      onChange: onChangePhone,
-      textInputType: TextInputType.phone,
     );
   }
 }

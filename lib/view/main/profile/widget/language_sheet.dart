@@ -1,5 +1,5 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:grin/Cubit/profile/profile_bloc.dart';
+import 'package:grin/cubit/profile/profile_bloc.dart';
 import 'package:grin/core/constants/constants.dart';
 import 'package:grin/core/extension/for_context.dart';
 import 'package:grin/core/extension/widget_extantion.dart';

@@ -64,11 +64,14 @@ class MyFunctions {
   }
 
   static String getPhone(text) {
-    return text
-        .replaceAll("-", "")
-        .replaceAll("(", "")
-        .replaceAll(")", "")
-        .replaceAll(" ", "");
+    print(text);
+  String phone=  text
+        .replaceAll("-", " ")
+        .replaceAll("(", " ")
+        .replaceAll(")", " ")
+        .replaceAll("", "");
+
+    return "+998$phone";
   }
 
   /// Formats a phone number given as a string of 9 digits into a

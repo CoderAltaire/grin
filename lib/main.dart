@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grin/Cubit/main_tab/main_tab_cubit.dart';
-import 'package:grin/Cubit/profile/profile_bloc.dart';
+import 'package:grin/Cubit/Login/login_cubit.dart';
+import 'package:grin/cubit/main_tab/main_tab_cubit.dart';
+import 'package:grin/cubit/profile/profile_bloc.dart';
 import 'package:grin/core/routes/app_pages.dart';
 import 'package:grin/core/routes/app_routes.dart';
 import 'package:grin/core/utils/size_config.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => ProfileCubit()),
         BlocProvider(create: (context) => MainTabCubit()),
+        BlocProvider(create: (context) => LoginCubit()),
       ],
       child: BlocBuilder<ProfileCubit, ProfileState>(builder: (context, state) {
         return MaterialApp(

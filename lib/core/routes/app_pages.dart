@@ -5,8 +5,8 @@ import 'package:grin/view/drawer/view/my_results_screen.dart';
 import 'package:grin/view/main/home/view/home_screen.dart';
 import 'package:grin/view/main/main_screen.dart';
 import 'package:grin/view/no_internet/no_inernet_screen.dart';
-import 'package:grin/view/splash/view/login_screen.dart';
-import 'package:grin/view/splash/view/select_lg_screen.dart';
+import 'package:grin/view/login/view/login_screen.dart';
+import 'package:grin/view/login/view/select_lg_screen.dart';
 
 Future<String?> path(String? path) async {
   "PATH: $path".printf(name: "MessagingService");

@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:grin/Cubit/main_tab/main_tab_cubit.dart';
+import 'package:grin/cubit/main_tab/main_tab_cubit.dart';
 import 'package:grin/core/constants/constants.dart';
 import 'package:grin/core/extension/widget_extantion.dart';
 import 'package:grin/core/utils/log_service.dart';

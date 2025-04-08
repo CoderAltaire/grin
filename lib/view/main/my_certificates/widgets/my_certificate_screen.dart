@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grin/core/routes/imports.dart';
 import 'package:grin/view/main/my_certificates/widgets/my_certificate_container.dart';
 
 import '../../../../core/utils/size_config.dart';
@@ -26,34 +27,31 @@ class _MyCertificateScreenState extends State<MyCertificateScreen> {
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: wi(16), vertical: he(10)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Certificates received",
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge
-                    ?.copyWith(fontWeight: FontWeight.w600, fontSize: 21),
-              ),
-              SizedBox(height: he(10)),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: certificateList.length,
-                itemBuilder: (context, index) {
-                  final certificate = certificateList[index];
-                  return CertificateContainer(
-                      image: certificate["image"] ?? "no data",
-                      title: certificate["title"] ?? "no data");
-                },
-              ),
-            ],
-          ),
-        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Certificates received",
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(fontWeight: FontWeight.w600, fontSize: 21),
+            ),
+            SizedBox(height: he(10)),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: certificateList.length,
+              itemBuilder: (context, index) {
+                final certificate = certificateList[index];
+                return CertificateContainer(
+                    image: certificate["image"] ?? "no data",
+                    title: certificate["title"] ?? "no data");
+              },
+            ),
+          ],
+        ).paddingSymmetric(horizontal: wi(16), vertical: he(10)),
       )),
     );
   }

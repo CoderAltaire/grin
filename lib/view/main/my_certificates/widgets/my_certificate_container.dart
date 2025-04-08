@@ -18,26 +18,32 @@ class CertificateContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: he(10)),
       child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         elevation: 4,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Certificate Image
-            Image.asset(
-              image,
-              height: he(250), // Rasm balandligi rasmga moslashtirildi
-              width: double.infinity,
-              fit: BoxFit.cover,
+            Padding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: wi(16), vertical: he(16)),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: Image.asset(
+                  image,
+                  height: he(250),
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             // Title and Button
             Padding(
               padding:
-                  EdgeInsets.symmetric(horizontal: wi(16), vertical: he(15)),
+                  EdgeInsets.symmetric(horizontal: wi(16), vertical: he(16)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: he(15)),
-
                   Text(
                     title,
                     style: const TextStyle(

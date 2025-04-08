@@ -37,16 +37,19 @@ class _MyCoursesContainerState extends State<MyCoursesContainer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Course Image
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  topRight: Radius.circular(12),
-                ),
-                child: Image.asset(
-                  widget.image,
-                  height: he(150),
-                  width: double.infinity,
-                  fit: BoxFit.cover,
+              Padding(
+                padding: EdgeInsets.only(
+                    left: wi(16), right: wi(16), top: he(16), bottom: he(5)),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                    4,
+                  ),
+                  child: Image.asset(
+                    widget.image,
+                    height: he(150),
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               // Title and Description

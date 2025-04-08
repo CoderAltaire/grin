@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:grin/core/values/app_assets.dart';
+import '../../../../core/routes/imports.dart';
 
 class MySettingsScreen extends StatefulWidget {
   const MySettingsScreen({super.key});
@@ -18,7 +17,7 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
       TextEditingController(text: "********");
   String _selectedLanguage = "EN"; // Tanlangan til
   Color _selectedColor = Colors.blue; // Tanlangan rang
-
+  File? selectedImage;
   @override
   void dispose() {
     _nameController.dispose();
@@ -86,17 +85,19 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
         const SizedBox(height: 16),
         Row(
           children: [
-            const CircleAvatar(
+            CircleAvatar(
               radius: 30,
-              backgroundImage: AssetImage(
-                AppImages.lesson1,
-              ),
+              backgroundImage: selectedImage != null
+                  ? FileImage(selectedImage!)
+                  : AssetImage(AppImages.lesson1),
             ),
             const SizedBox(width: 16),
             Column(
               children: [
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    pickImagefromGsllery();
+                  },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Colors.blue),
                     shape: RoundedRectangleBorder(
@@ -298,5 +299,13 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
         ),
       ),
     );
+  }
+
+  Future pickImagefromGsllery() async {
+    final returnedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    setState(() {
+      selectedImage = File(returnedImage?.path ?? "");
+    });
   }
 }

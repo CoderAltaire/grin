@@ -1,11 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:grin/core/routes/app_routes.dart';
-
-import '../../../core/utils/size_config.dart';
-import '../../../core/values/app_assets.dart';
-import '../../../core/values/app_colors.dart';
-import '../../../core/widgets/custom_button.dart';
-import '../widgets/select_lg_container.dart';
+import 'package:grin/view/splash/widgets/select_lg_container.dart';
+import '../../../core/routes/imports.dart';
 
 class SelectLgScreen extends StatefulWidget {
   const SelectLgScreen({super.key});
@@ -38,58 +32,49 @@ class _SelectLgScreenState extends State<SelectLgScreen> {
       backgroundColor: Color(0xFFF8FAFC),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 30),
-                Image.asset(
-                  AppImages.logo,
-                  height: 50,
-                ),
-                SizedBox(height: 20),
-                richText(context),
-                ...List.generate(languages.length, (index) {
-                  return SelectLgContainerWidget(
-                    imagePath: languages[index]['image']!,
-                    language: languages[index]['language']!,
-                    isSelected: selectedIndex == index,
-                    onTap: () {
-                      setState(() {
-                        selectedIndex = index;
-                      });
-                    },
-                  );
-                }),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: wi(30), vertical: he(10)),
-                  child: CustomButton(
-                    height: 45,
-                    radius: 10,
-                    bgColor: AppColors.whiteBlue,
-                    text: 'Get Started',
-                    onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.mainScreen);
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: wi(30), vertical: he(10)),
-                  child: CustomButton(
-                    height: 45,
-                    border: Border.all(color: AppColors.whiteBlue),
-                    bgColor: AppColors.white,
-                    text: 'Back',
-                    textColor: AppColors.whiteBlue,
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
-              ],
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(height: he(30)),
+              Image.asset(
+                AppImages.logo,
+                height: he(50),
+                colorBlendMode: BlendMode.srcIn,
+              ),
+              SizedBox(height: he(20)),
+              richText(context),
+              ...List.generate(languages.length, (index) {
+                return SelectLgContainerWidget(
+                  imagePath: languages[index]['image']!,
+                  language: languages[index]['language']!,
+                  isSelected: selectedIndex == index,
+                  onTap: () {
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                  },
+                );
+              }),
+              CustomButton(
+                height: he(45),
+                radius: 10,
+                bgColor: AppColors.whiteBlue,
+                text: 'Get Started',
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.mainScreen);
+                },
+              ).paddingSymmetric(horizontal: wi(30), vertical: he(10)),
+              CustomButton(
+                height: 45,
+                border: Border.all(color: AppColors.whiteBlue),
+                bgColor: AppColors.white,
+                text: 'Back',
+                textColor: AppColors.whiteBlue,
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ).paddingSymmetric(horizontal: wi(30), vertical: he(10)),
+            ],
           ),
         ),
       ),

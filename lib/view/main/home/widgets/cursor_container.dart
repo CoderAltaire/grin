@@ -43,27 +43,31 @@ class _CourseContainerState extends State<CourseContainer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Course Image
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  topRight: Radius.circular(12),
+              Padding(
+                padding: EdgeInsets.only(
+                  left: wi(15),
+                  right: wi(15),
+                  top: he(15),
                 ),
-                child: Image.asset(
-                  widget.imagePath,
-                  height: he(200),
-                  width: double.infinity,
-                  fit: BoxFit.cover,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(
+                    widget.imagePath,
+                    height: he(200),
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               Padding(
                 padding:
-                    EdgeInsets.symmetric(horizontal: wi(16), vertical: he(16)),
+                    EdgeInsets.symmetric(horizontal: wi(16), vertical: he(10)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Icons and Info Row
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
                           children: [

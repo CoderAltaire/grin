@@ -66,8 +66,12 @@ class _MainScreenState extends State<MainScreen>
                     ?.copyWith(fontWeight: FontWeight.w500),
               ),
               SizedBox(width: wi(10)),
-              CircleAvatar(
-                backgroundImage: AssetImage(AppImages.lesson1),
+              InkWell(
+                borderRadius: BorderRadius.circular(50),
+                onTap: () => tabController.animateTo(3),
+                child: CircleAvatar(
+                  backgroundImage: AssetImage(AppImages.lesson1),
+                ),
               ),
             ],
           ),
@@ -133,7 +137,7 @@ class _MainScreenState extends State<MainScreen>
                   index: 3,
                   currentIndex: state.main,
                   icon: AppIcons.ic_settinges,
-                  onTap: () => tabController.animateTo(2),
+                  onTap: () => tabController.animateTo(3),
                   label: "Settings",
                 ),
               ],

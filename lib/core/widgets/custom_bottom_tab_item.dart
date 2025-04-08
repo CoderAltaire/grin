@@ -32,12 +32,9 @@ class BottomTabItem extends StatelessWidget {
             duration: const Duration(milliseconds: 100),
             height: isSelected ? he(26) : he(22),
             curve: Curves.easeIn,
-            child: SvgPicture.asset(
-              icon,
-              colorFilter: ColorFilter.mode(
-                isSelected ? AppColors.primaryColor : AppColors.grey3,
-                BlendMode.srcIn,
-              ),
+            child: ImageIcon(
+              AssetImage(icon),
+              color: isSelected ? AppColors.primaryColor : AppColors.grey3,
             ),
           ),
           SizedBox(height: he(6)),

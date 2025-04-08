@@ -7,5 +7,5 @@ class AppRoutes {
   static const String selectLanguage = "selectLanguage";
   static const String homeScreen = "homeScreen";
   static const String mainScreen = "mainScreen";
-
+  static const String myResults = "myResults";
 }

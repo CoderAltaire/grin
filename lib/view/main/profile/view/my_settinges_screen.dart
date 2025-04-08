@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grin/core/values/app_assets.dart';
 
 class MySettingsScreen extends StatefulWidget {
   const MySettingsScreen({super.key});
@@ -9,9 +10,12 @@ class MySettingsScreen extends StatefulWidget {
 
 class _MySettingsScreenState extends State<MySettingsScreen> {
   // Controller'lar
-  final TextEditingController _nameController = TextEditingController(text: "Kelvin Klein");
-  final TextEditingController _usernameController = TextEditingController(text: "@kelvinklein");
-  final TextEditingController _passwordController = TextEditingController(text: "********");
+  final TextEditingController _nameController =
+      TextEditingController(text: "Kelvin Klein");
+  final TextEditingController _usernameController =
+      TextEditingController(text: "@kelvinklein");
+  final TextEditingController _passwordController =
+      TextEditingController(text: "********");
   String _selectedLanguage = "EN"; // Tanlangan til
   Color _selectedColor = Colors.blue; // Tanlangan rang
 
@@ -84,8 +88,8 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
           children: [
             const CircleAvatar(
               radius: 30,
-              backgroundImage: NetworkImage(
-                'https://ichef.bbci.co.uk/images/ic/1200x675/p03c84wz.jpg',
+              backgroundImage: AssetImage(
+                AppImages.lesson1,
               ),
             ),
             const SizedBox(width: 16),
@@ -139,7 +143,8 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
   }
 
   // TextField yaratish uchun yordamchi funksiya
-  Widget _buildTextField(String label, TextEditingController controller, {bool isPassword = false}) {
+  Widget _buildTextField(String label, TextEditingController controller,
+      {bool isPassword = false}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -163,7 +168,9 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
               borderRadius: BorderRadius.circular(8),
               borderSide: const BorderSide(color: Colors.grey),
             ),
-            suffixIcon: isPassword ? const Icon(Icons.visibility, color: Colors.grey) : null,
+            suffixIcon: isPassword
+                ? const Icon(Icons.visibility, color: Colors.grey)
+                : null,
           ),
         ),
       ],

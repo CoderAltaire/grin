@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:grin/core/values/app_colors.dart';
 
-import '../utils/size_config.dart';
+import '../../../../core/utils/size_config.dart';
 
 class CourseContainer extends StatefulWidget {
   final String imagePath;
@@ -11,20 +12,28 @@ class CourseContainer extends StatefulWidget {
   final String teacher;
   final String teacherLogo;
 
-   CourseContainer({super.key, required this.imagePath, required this.description, required this.time,  required this.status, required this.lessonsNumber, required this.teacher, required this.teacherLogo});
+  CourseContainer(
+      {super.key,
+      required this.imagePath,
+      required this.description,
+      required this.time,
+      required this.status,
+      required this.lessonsNumber,
+      required this.teacher,
+      required this.teacherLogo});
   @override
   State<CourseContainer> createState() => _CourseContainerState();
 }
 
 class _CourseContainerState extends State<CourseContainer> {
-
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(vertical: he(10)),
+      padding: EdgeInsets.symmetric(vertical: he(10)),
       child: InkWell(
-        onTap: (){},
+        borderRadius: BorderRadius.circular(12),
+        focusColor: AppColors.grey2,
+        onTap: () {},
         child: Card(
           elevation: 4,
           shape: RoundedRectangleBorder(
@@ -44,11 +53,11 @@ class _CourseContainerState extends State<CourseContainer> {
                   height: he(200),
                   width: double.infinity,
                   fit: BoxFit.cover,
-
                 ),
               ),
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: wi(16),vertical: he(16)),
+                padding:
+                    EdgeInsets.symmetric(horizontal: wi(16), vertical: he(16)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -61,28 +70,31 @@ class _CourseContainerState extends State<CourseContainer> {
                             Icon(Icons.book, color: Colors.blue, size: 20),
                             SizedBox(width: wi(4)),
                             Text(
-                             widget.lessonsNumber,
-                              style: TextStyle(fontSize: 14, color: Colors.grey),
+                              widget.lessonsNumber,
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.grey),
                             ),
                           ],
                         ),
                         Row(
                           children: [
                             Icon(Icons.timer, color: Colors.blue, size: 20),
-                            SizedBox(width:wi(4)),
+                            SizedBox(width: wi(4)),
                             Text(
                               widget.time,
-                              style: TextStyle(fontSize: 14, color: Colors.grey),
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.grey),
                             ),
                           ],
                         ),
                         Row(
                           children: [
                             Icon(Icons.person, color: Colors.blue, size: 20),
-                            SizedBox(width:wi(4)),
+                            SizedBox(width: wi(4)),
                             Text(
                               widget.status,
-                              style: TextStyle(fontSize: 14, color: Colors.grey),
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.grey),
                             ),
                           ],
                         ),
@@ -108,7 +120,7 @@ class _CourseContainerState extends State<CourseContainer> {
                             widget.teacherLogo,
                           ),
                         ),
-                        SizedBox(width:wi(8)),
+                        SizedBox(width: wi(8)),
                         Text(
                           widget.teacher,
                           style: TextStyle(fontSize: 14, color: Colors.grey),

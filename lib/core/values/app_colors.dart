@@ -20,11 +20,16 @@ class AppColors {
   static const red = Colors.red;
   static const amber = Colors.amber;
   static const whiteBlue = Colors.blue;
+  static const whiteBlue2 = Color.fromRGBO(87, 187, 248, 1);
+  static const whiteBlue3 = Color.fromRGBO(177, 223, 252, 1);
+  static const whiteBlueText = Color.fromRGBO(4, 153, 245, 1);
+  static const indigo = Color.fromRGBO(41, 217, 227, 1);
 
 //Blcak colors
   static const black = Colors.black;
   static const black1 = Color(0xFF313131);
   static const black2 = Color(0xFF353535);
+  static const black3 = Color.fromRGBO(0, 0, 0, 1);
 
   static const transparent = Colors.transparent;
   static const mainGradient = LinearGradient(

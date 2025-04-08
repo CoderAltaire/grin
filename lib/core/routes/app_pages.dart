@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:grin/core/extension/log.dart';
 import 'package:grin/core/routes/app_routes.dart';
-import 'package:grin/view/main/home/home_screen.dart';
+import 'package:grin/view/drawer/view/my_results_screen.dart';
+import 'package:grin/view/main/home/view/home_screen.dart';
 import 'package:grin/view/main/main_screen.dart';
 import 'package:grin/view/no_internet/no_inernet_screen.dart';
 import 'package:grin/view/splash/view/login_screen.dart';
@@ -38,6 +39,8 @@ class RouteGenerate {
         return simpleRoute(const HomeScreen());
       case AppRoutes.mainScreen:
         return simpleRoute(const MainScreen());
+      case AppRoutes.myResults:
+        return simpleRoute(const MyResultsScreen());
 
       // case AppRoutes.splashScreen:
       // return simpleRoute(const SplashScreen());

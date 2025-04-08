@@ -12,10 +12,11 @@ import 'package:grin/generated/l10n.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:grin/view/main/home/home_screen.dart';
-import 'package:grin/view/main/home/my_certificate_screen.dart';
-import 'package:grin/view/main/home/my_courses_screen.dart';
-import 'package:grin/view/main/home/my_settinges_screen.dart';
+import 'package:grin/view/drawer/view/my_drawer_screen.dart';
+import 'package:grin/view/main/home/view/home_screen.dart';
+import 'package:grin/view/main/my_certificates/view/my_certificate_screen.dart';
+import 'package:grin/view/main/my_courses/view/my_courses_screen.dart';
+import 'package:grin/view/main/profile/view/my_settinges_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -57,20 +58,21 @@ class _MainScreenState extends State<MainScreen>
           title: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text('Kelvin Klein',style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w500),),
+              Text(
+                'Kelvin Klein',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge
+                    ?.copyWith(fontWeight: FontWeight.w500),
+              ),
               SizedBox(width: wi(10)),
               CircleAvatar(
-                backgroundImage: AssetImage("assets/images/lessons1.png"),
-
+                backgroundImage: AssetImage(AppImages.lesson1),
               ),
-
             ],
           ),
-
-
-        ),drawer: Drawer(),
-
-
+        ),
+        drawer: MyDrawerScreen(),
         resizeToAvoidBottomInset: false,
         extendBody: true,
         body: Stack(
@@ -109,21 +111,20 @@ class _MainScreenState extends State<MainScreen>
               tabs: [
                 BottomTabItem(
                   currentIndex: state.main,
-                  icon: AppIcons.icHome,
+                  icon: AppIcons.ic_home,
                   onTap: () => tabController.animateTo(0),
                   index: 0,
                   label: "Home",
                 ),
                 BottomTabItem(
-                  currentIndex: state.main,
-                  icon: AppIcons.icCategory,
-                  onTap: () => tabController.animateTo(1),
-                  index: 1,
-                  label: "My Courses"
-                ),
+                    currentIndex: state.main,
+                    icon: AppIcons.ic_course,
+                    onTap: () => tabController.animateTo(1),
+                    index: 1,
+                    label: "My Courses"),
                 BottomTabItem(
                   currentIndex: state.main,
-                  icon: AppIcons.orders,
+                  icon: AppIcons.ic_certificate,
                   onTap: () => tabController.animateTo(2),
                   index: 2,
                   label: 'Certificate',
@@ -131,7 +132,7 @@ class _MainScreenState extends State<MainScreen>
                 BottomTabItem(
                   index: 3,
                   currentIndex: state.main,
-                  icon: AppIcons.icPerson,
+                  icon: AppIcons.ic_settinges,
                   onTap: () => tabController.animateTo(2),
                   label: "Settings",
                 ),

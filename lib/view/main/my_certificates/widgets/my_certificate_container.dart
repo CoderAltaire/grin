@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grin/core/values/app_colors.dart';
 
-import '../utils/size_config.dart';
+import '../../../../core/utils/size_config.dart';
 
 class CertificateContainer extends StatelessWidget {
   final String image;
@@ -14,13 +14,11 @@ class CertificateContainer extends StatelessWidget {
   }) : super(key: key);
 
   @override
-
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric( vertical: he(10)),
+      padding: EdgeInsets.symmetric(vertical: he(10)),
       child: Card(
         elevation: 4,
-
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -28,14 +26,13 @@ class CertificateContainer extends StatelessWidget {
             Image.asset(
               image,
               height: he(250), // Rasm balandligi rasmga moslashtirildi
-width: double.infinity,
+              width: double.infinity,
               fit: BoxFit.cover,
-
-
             ),
             // Title and Button
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal:wi(16),vertical: he(15)),
+              padding:
+                  EdgeInsets.symmetric(horizontal: wi(16), vertical: he(15)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -49,7 +46,7 @@ width: double.infinity,
                       color: AppColors.black,
                     ),
                   ),
-                   SizedBox(height: he(25)),
+                  SizedBox(height: he(25)),
                   // Download Certificate Button
                   SizedBox(
                     width: double.infinity,
@@ -73,7 +70,7 @@ width: double.infinity,
                       ),
                       style: OutlinedButton.styleFrom(
                         side: const BorderSide(color: Colors.blue),
-                        padding:  EdgeInsets.symmetric(vertical: he(12)),
+                        padding: EdgeInsets.symmetric(vertical: he(12)),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),

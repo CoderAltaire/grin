@@ -19,6 +19,7 @@ class TextFieldCountry extends StatelessWidget {
     this.fillColor,
     this.hintText,
     this.suffixIcon,
+    this.visibility,
   });
 
   final Function(dynamic v) onChangePhone;
@@ -31,11 +32,13 @@ class TextFieldCountry extends StatelessWidget {
   final String labelText;
   final Color? fillColor;
   final Widget? suffixIcon;
+  final bool? visibility;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: he(20)),
       child: CustomPrefixTextField(
+        obscure: visibility ?? false,
         labelText: labelText,
 
         // inputFormatters: [

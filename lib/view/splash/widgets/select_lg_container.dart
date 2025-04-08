@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../utils/size_config.dart';
-import '../values/app_colors.dart';
+import '../../../core/utils/size_config.dart';
+import '../../../core/values/app_colors.dart';
 
 class SelectLgContainerWidget extends StatelessWidget {
   final String imagePath;
@@ -19,13 +19,12 @@ class SelectLgContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.symmetric(vertical: he(10)),
-        padding: EdgeInsets.symmetric(vertical: he(30)),
+        padding: EdgeInsets.symmetric(vertical: he(20)),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -41,29 +40,27 @@ class SelectLgContainerWidget extends StatelessWidget {
             width: 2,
           ),
         ),
-        width: SizeConfig.screenWidth! * 0.65,
-        height: SizeConfig.screenHeight!*0.2,
+        width: wi(210),
+        height: he(133),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
               imagePath,
-              height: he(70),
+              height: he(56),
               fit: BoxFit.contain,
             ),
-            SizedBox(height: he(10)),
             Text(
               language,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+                    fontSize: 21,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
             ),
           ],
         ),
       ),
     );
   }
-
 }

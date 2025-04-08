@@ -21,12 +21,13 @@ class _LoginScreenState extends State<LoginScreen> {
   // final formKey = GlobalKey<FormState>();
   final focusNode1 = FocusNode();
   final focusNode2 = FocusNode();
-
+  bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: wi(40)),
+        padding:
+            EdgeInsets.symmetric(horizontal: SizeConfig.screenWidth! * 0.1),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,18 +36,17 @@ class _LoginScreenState extends State<LoginScreen> {
               AppImages.logo,
               height: 50,
             ),
-            // SizedBox(height: he(20)),
+            SizedBox(height: SizeConfig.screenHeight! * 0.015),
             Text("Welcome back",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
-            // SizedBox(height: he(20)),
+                style: TextStyle(
+                    fontSize: he(38),
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.black1)),
+            SizedBox(height: SizeConfig.screenHeight! * 0.02),
             Text(
-              textAlign: TextAlign.center,
-              "Great to have you back, let's get back \n to our studies.",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall
-                  ?.copyWith(fontSize: he(17), color: AppColors.black2),
-            ),
+                textAlign: TextAlign.center,
+                "Great to have you back, let's get back \n to our studies.",
+                style: TextStyle(fontSize: 16, color: AppColors.black1)),
             // Text(
             //   S.current.strYourPhone,
             //   style: Theme.of(context)
@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
             //       .bodySmall
             //       ?.copyWith(fontSize: he(14)),
             // ),
-            SizedBox(height: he(50)),
+            SizedBox(height: SizeConfig.screenHeight! * 0.05),
 
             TextFieldCountry(
               labelText: AppStrings.strEmail,
@@ -72,20 +72,38 @@ class _LoginScreenState extends State<LoginScreen> {
               controller: passwordController,
               focusNode: focusNode2,
               hintText: '********',
-              suffixIcon: AppIcons.icEye_off,
+              suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    _obscureText = !_obscureText;
+                  });
+                },
+                icon: Icon(
+                  _obscureText ? Icons.visibility_off : Icons.visibility,
+                ),
+              ),
               onChangePhone: (v) {},
+              visibility: _obscureText,
             ),
-            SizedBox(height: 50),
-            CustomButton(
-              fontSize: 20,
-              bgColor: AppColors.whiteBlue,
-              radius: 12,
-              text: AppStrings.strLogIn,
-              textColor: AppColors.white,
-              onTap: () {
-                Navigator.pushNamed(context, AppRoutes.selectLanguage);
-              },
-            )
+            SizedBox(height: SizeConfig.screenHeight! * 0.05),
+
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutes.selectLanguage);
+                },
+                style: ElevatedButton.styleFrom(
+                    minimumSize: Size(SizeConfig.screenWidth! * 0.8,
+                        SizeConfig.screenHeight! * 0.05),
+                    backgroundColor: AppColors.whiteBlue,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12))),
+                child: Text(
+                  AppStrings.strLogIn,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.white),
+                ))
           ],
         ),
       ),

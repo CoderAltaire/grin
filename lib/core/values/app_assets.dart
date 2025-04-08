@@ -14,32 +14,39 @@ class AppIcons {
   static const String logo = 'assets/icons/logo2.svg';
 
   static const String icSearch = 'assets/icons/icSearch.svg';
+  static const String icVector = 'assets/icons/vector.png';
 
-  //---------------------
+  //---------------------png images --------------------
   static const Icon icEye_off = Icon(Icons.visibility_off);
   static const Icon icEye = Icon(Icons.visibility);
+  static const String ic_home = 'assets/icons/home.png';
+  static const String ic_course = 'assets/icons/book.png';
+  static const String ic_certificate = 'assets/icons/certificate.png';
+  static const String ic_settinges = 'assets/icons/setting.png';
+  static const String ic_play_button = 'assets/icons/play_circle.png';
 }
 
-extension SvgExt on String {
-  SvgPicture svg({
-    Color? color,
-    double? width,
-    double? height,
-  }) {
-    return SvgPicture.asset(
-      this,
-      colorFilter:
-          color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
-      width: width,
-      height: height,
-      fit: BoxFit.cover,
-    );
-  }
-}
+// extension SvgExt on String {
+//   SvgPicture svg({
+//     Color? color,
+//     double? width,
+//     double? height,
+//   }) {
+//     return SvgPicture.asset(
+//       this,
+//       colorFilter:
+//           color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null,
+//       width: width,
+//       height: height,
+//       fit: BoxFit.cover,
+//     );
+//   }
+// }
 
 class AppImages {
   AppImages._();
   // static const String profileimage = 'assets/images/profile_image.png';
+  static const String grin_uz_logo = 'assets/images/grin_logo.png';
   static const String imgArbFlag = 'assets/images/arabic_flag.png';
   static const String imgEngFlag = 'assets/images/england_flag.png';
   static const String imgKorFlag = 'assets/images/korean_flag.png';
@@ -48,4 +55,5 @@ class AppImages {
   static const String icRusFlag = 'assets/images/ic_rus_flag.png';
   static const String logo = 'assets/images/logo.png';
   static const String icEngFlag = 'assets/images/ic_eng_flag.png';
+  static const String lesson1 = 'assets/images/lessons1.png';
 }

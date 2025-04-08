@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grin/core/values/app_colors.dart';
 
-import '../utils/size_config.dart';
+import '../../../../core/utils/size_config.dart';
 
 class MyCoursesContainer extends StatefulWidget {
   final String image;
@@ -23,9 +23,11 @@ class _MyCoursesContainerState extends State<MyCoursesContainer> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(vertical: he(10)),
+      padding: EdgeInsets.symmetric(vertical: he(10)),
       child: InkWell(
-        onTap: (){},
+        borderRadius: BorderRadius.circular(12),
+        focusColor: AppColors.grey2,
+        onTap: () {},
         child: Card(
           elevation: 4,
           shape: RoundedRectangleBorder(
@@ -45,8 +47,6 @@ class _MyCoursesContainerState extends State<MyCoursesContainer> {
                   height: he(150),
                   width: double.infinity,
                   fit: BoxFit.cover,
-
-
                 ),
               ),
               // Title and Description
@@ -63,7 +63,7 @@ class _MyCoursesContainerState extends State<MyCoursesContainer> {
                         color: Colors.black87,
                       ),
                     ),
-                     SizedBox(height: he(4)),
+                    SizedBox(height: he(4)),
                     Text(
                       widget.description,
                       style: const TextStyle(

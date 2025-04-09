@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:grin/core/values/app_colors.dart';
-import 'package:grin/view/main/home/widgets/cursor_container.dart';
-import '../../../../core/utils/size_config.dart';
+import 'package:grin/core/routes/imports.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -57,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Courses and programmes',
+                  S.of(context).strCourseProgram,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: AppColors.black,
                         fontWeight: FontWeight.w600,

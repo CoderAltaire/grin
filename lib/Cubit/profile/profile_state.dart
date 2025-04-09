@@ -7,7 +7,8 @@ class ProfileState with _$ProfileState {
     @Default(UnknownFailure()) Failure failure,
     @Default("") String gender,
     DateTime? birthDay,
-    @Default("uz") String language,
-    @Default("uz") String temporaryLanguage,
+    @Default("en") String language,
+    @Default("en") String temporaryLanguage,
+    @Default(Colors.blue) Color selectedColor, // Rang qo'shildi
   }) = _ProfileState;
 }

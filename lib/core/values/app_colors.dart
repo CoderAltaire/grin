@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:grin/core/service/local_data_sources/hive_names.dart';
 
 class AppColors {
   AppColors._();
   static const primaryColor = Color(0xFFFF2D9A);
+
   static const primaryColorOpacity = Color.fromARGB(255, 254, 239, 247);
   static const lightGray = Color(0xFFE4E4E4);
   static const grey3 = Color(0xFF898E96);

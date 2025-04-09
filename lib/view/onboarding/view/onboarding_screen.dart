@@ -1,13 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:grin/core/constants/constants.dart';
-import 'package:grin/core/routes/app_routes.dart';
-import 'package:grin/core/utils/size_config.dart';
-import 'package:grin/core/values/app_assets.dart';
-import 'package:grin/core/values/app_colors.dart';
-import 'package:grin/generated/l10n.dart';
-import 'package:grin/view/main/profile/widget/language_sheet.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:grin/core/routes/imports.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});

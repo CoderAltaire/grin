@@ -1,6 +1,9 @@
 {
   "@@locale": "ru",
   "strHome": "Главная",
+  "strCertificate": "сертификат",
+  "strCourses": "курсы",
+  "strSettinges": "настройки",
   "strCategory": "Категория",
   "strOrders": "Заказы",
   "strProfile": "Профиль",
@@ -16,7 +19,6 @@
   "strEducation": "Образование",
   "strBusiness": "Бизнес и услуги",
   "strMedical": "Здравоохранение и медицина",
-  "strHome": "Дом и сад",
   "strHobby": "Хобби и отдых",
   "strFindFromMap": "Найти на карте",
   "strContact": "Контакт",

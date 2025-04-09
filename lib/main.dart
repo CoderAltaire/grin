@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grin/Cubit/Login/login_cubit.dart';
+import 'package:grin/core/service/local_data_sources/hive_class.dart';
 import 'package:grin/cubit/main_tab/main_tab_cubit.dart';
 import 'package:grin/cubit/profile/profile_bloc.dart';
 import 'package:grin/core/routes/app_pages.dart';
@@ -11,7 +12,9 @@ import 'core/utils/helper/helper_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await HiveService.init();
   runApp(const MyApp());
 }
 
@@ -40,8 +43,8 @@ class MyApp extends StatelessWidget {
             S.delegate,
           ],
           supportedLocales: const [
-            Locale('uz'),
             Locale('en'),
+            Locale('uz'),
             Locale('ru'),
           ],
           locale: Locale(state.language),

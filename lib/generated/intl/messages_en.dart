@@ -31,6 +31,30 @@ class MessageLookup extends MessageLookupByLibrary {
             "By registering, you agree to our terms"),
         "strName": MessageLookupByLibrary.simpleMessage("Name"),
         "strPrice": MessageLookupByLibrary.simpleMessage("Price"),
+        "strHome": MessageLookupByLibrary.simpleMessage("Home"),
+        "strCourses": MessageLookupByLibrary.simpleMessage("Courses"),
+        "strCertificate": MessageLookupByLibrary.simpleMessage("Certificate"),
+        "strSettinges": MessageLookupByLibrary.simpleMessage("Settinges"),
+        "strLanguage": MessageLookupByLibrary.simpleMessage("Language"),
+        "strCustomizeLg":
+            MessageLookupByLibrary.simpleMessage("Customize YourLanguage"),
+        "strGetStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
+        "strBack": MessageLookupByLibrary.simpleMessage("Back"),
+        "strMyResults": MessageLookupByLibrary.simpleMessage("Results"),
+        "strChangePh": MessageLookupByLibrary.simpleMessage("Change Photo"),
+        "strDelPh": MessageLookupByLibrary.simpleMessage("Delete Photo"),
+        "strChoosePreTheme": MessageLookupByLibrary.simpleMessage(
+            "Choose a preferred theme for the app"),
+        "strThemeColor": MessageLookupByLibrary.simpleMessage("Theme Color"),
+        "strName": MessageLookupByLibrary.simpleMessage("Name"),
+        "strUserName": MessageLookupByLibrary.simpleMessage("Username"),
+        "strPassword": MessageLookupByLibrary.simpleMessage("Password"),
+        "strRecCertificate":
+            MessageLookupByLibrary.simpleMessage("Certificates received"),
+        "strStartedCourses": MessageLookupByLibrary.simpleMessage(
+            "Here you can continue your started courses and track the process"),
+        "strCourseProgram":
+            MessageLookupByLibrary.simpleMessage(" Courses and programmes"),
         "strDescription": MessageLookupByLibrary.simpleMessage("Description"),
         "strReadTheTermsOfUse":
             MessageLookupByLibrary.simpleMessage("Read the terms of use:"),
@@ -227,7 +251,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "strHighestRating":
             MessageLookupByLibrary.simpleMessage("Highest rating"),
         "strHobby": MessageLookupByLibrary.simpleMessage("Hobbies and leisure"),
-        "strHome": MessageLookupByLibrary.simpleMessage("Home and garden"),
         "strHomeNumber": MessageLookupByLibrary.simpleMessage("House Number"),
         "strHouse": MessageLookupByLibrary.simpleMessage("Real estate"),
         "strIn100grams":
@@ -236,7 +259,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your account has insufficient balance."),
         "strIsRead": MessageLookupByLibrary.simpleMessage("Read"),
         "strKcal": MessageLookupByLibrary.simpleMessage("Kcal"),
-        "strLanguage": MessageLookupByLibrary.simpleMessage("Language"),
         "strLastName": MessageLookupByLibrary.simpleMessage("Last Name"),
         "strLeaveComment":
             MessageLookupByLibrary.simpleMessage("Leave a comment"),
@@ -544,10 +566,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("The number has changed"),
         "termOfUse": MessageLookupByLibrary.simpleMessage("Term of use"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
-
-        "plsWait": MessageLookupByLibrary.simpleMessage("Location is being determined"),
-
-           "geoLocation": MessageLookupByLibrary.simpleMessage(
+        "plsWait": MessageLookupByLibrary.simpleMessage(
+            "Location is being determined"),
+        "geoLocation": MessageLookupByLibrary.simpleMessage(
             "The Bir Qadam app is requesting access to your location"),
         "thankYou": MessageLookupByLibrary.simpleMessage("Thank you!")
       };

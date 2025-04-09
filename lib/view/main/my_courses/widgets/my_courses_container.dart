@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grin/core/values/app_colors.dart';
 
+import '../../../../core/routes/imports.dart';
 import '../../../../core/utils/size_config.dart';
 
 class MyCoursesContainer extends StatefulWidget {
@@ -27,7 +28,9 @@ class _MyCoursesContainerState extends State<MyCoursesContainer> {
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
         focusColor: AppColors.grey2,
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, AppRoutes.myResults);
+        },
         child: Card(
           elevation: 4,
           shape: RoundedRectangleBorder(

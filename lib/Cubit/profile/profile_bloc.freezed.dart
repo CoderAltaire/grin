@@ -22,6 +22,7 @@ mixin _$ProfileState {
   DateTime? get birthDay => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
   String get temporaryLanguage => throw _privateConstructorUsedError;
+  Color get selectedColor => throw _privateConstructorUsedError;
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.
@@ -42,7 +43,8 @@ abstract class $ProfileStateCopyWith<$Res> {
       String gender,
       DateTime? birthDay,
       String language,
-      String temporaryLanguage});
+      String temporaryLanguage,
+      Color selectedColor});
 }
 
 /// @nodoc
@@ -66,6 +68,7 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
     Object? birthDay = freezed,
     Object? language = null,
     Object? temporaryLanguage = null,
+    Object? selectedColor = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -92,6 +95,10 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.temporaryLanguage
           : temporaryLanguage // ignore: cast_nullable_to_non_nullable
               as String,
+      selectedColor: null == selectedColor
+          ? _value.selectedColor
+          : selectedColor // ignore: cast_nullable_to_non_nullable
+              as Color,
     ) as $Val);
   }
 }
@@ -110,7 +117,8 @@ abstract class _$$ProfileStateImplCopyWith<$Res>
       String gender,
       DateTime? birthDay,
       String language,
-      String temporaryLanguage});
+      String temporaryLanguage,
+      Color selectedColor});
 }
 
 /// @nodoc
@@ -132,6 +140,7 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
     Object? birthDay = freezed,
     Object? language = null,
     Object? temporaryLanguage = null,
+    Object? selectedColor = null,
   }) {
     return _then(_$ProfileStateImpl(
       status: null == status
@@ -158,6 +167,10 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
           ? _value.temporaryLanguage
           : temporaryLanguage // ignore: cast_nullable_to_non_nullable
               as String,
+      selectedColor: null == selectedColor
+          ? _value.selectedColor
+          : selectedColor // ignore: cast_nullable_to_non_nullable
+              as Color,
     ));
   }
 }
@@ -170,8 +183,9 @@ class _$ProfileStateImpl implements _ProfileState {
       this.failure = const UnknownFailure(),
       this.gender = "",
       this.birthDay,
-      this.language = "uz",
-      this.temporaryLanguage = "uz"});
+      this.language = "en",
+      this.temporaryLanguage = "en",
+      this.selectedColor = Colors.blue});
 
   @override
   @JsonKey()
@@ -190,10 +204,13 @@ class _$ProfileStateImpl implements _ProfileState {
   @override
   @JsonKey()
   final String temporaryLanguage;
+  @override
+  @JsonKey()
+  final Color selectedColor;
 
   @override
   String toString() {
-    return 'ProfileState(status: $status, failure: $failure, gender: $gender, birthDay: $birthDay, language: $language, temporaryLanguage: $temporaryLanguage)';
+    return 'ProfileState(status: $status, failure: $failure, gender: $gender, birthDay: $birthDay, language: $language, temporaryLanguage: $temporaryLanguage, selectedColor: $selectedColor)';
   }
 
   @override
@@ -209,12 +226,14 @@ class _$ProfileStateImpl implements _ProfileState {
             (identical(other.language, language) ||
                 other.language == language) &&
             (identical(other.temporaryLanguage, temporaryLanguage) ||
-                other.temporaryLanguage == temporaryLanguage));
+                other.temporaryLanguage == temporaryLanguage) &&
+            (identical(other.selectedColor, selectedColor) ||
+                other.selectedColor == selectedColor));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, status, failure, gender,
-      birthDay, language, temporaryLanguage);
+      birthDay, language, temporaryLanguage, selectedColor);
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.
@@ -232,7 +251,8 @@ abstract class _ProfileState implements ProfileState {
       final String gender,
       final DateTime? birthDay,
       final String language,
-      final String temporaryLanguage}) = _$ProfileStateImpl;
+      final String temporaryLanguage,
+      final Color selectedColor}) = _$ProfileStateImpl;
 
   @override
   Status get status;
@@ -246,6 +266,8 @@ abstract class _ProfileState implements ProfileState {
   String get language;
   @override
   String get temporaryLanguage;
+  @override
+  Color get selectedColor;
 
   /// Create a copy of ProfileState
   /// with the given fields replaced by the non-null parameter values.

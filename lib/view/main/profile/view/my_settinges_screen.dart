@@ -1,3 +1,5 @@
+import 'package:path/path.dart' as path;
+
 import '../../../../core/routes/imports.dart';
 
 class MySettingsScreen extends StatefulWidget {
@@ -9,15 +11,32 @@ class MySettingsScreen extends StatefulWidget {
 
 class _MySettingsScreenState extends State<MySettingsScreen> {
   // Controller'lar
-  final TextEditingController _nameController =
-      TextEditingController(text: "Kelvin Klein");
-  final TextEditingController _usernameController =
-      TextEditingController(text: "@kelvinklein");
-  final TextEditingController _passwordController =
-      TextEditingController(text: "********");
+  final TextEditingController _nameController = TextEditingController(
+      text: HiveBoxes.userDatas.isNotEmpty
+          ? HiveBoxes.userDatas.values.first.fullname
+          : "no data");
+  final TextEditingController _usernameController = TextEditingController(
+      text: HiveBoxes.userDatas.isNotEmpty
+          ? HiveBoxes.userDatas.values.first.phone_number
+          : "no data");
+  final TextEditingController _passwordController = TextEditingController(
+      text: HiveBoxes.userDatas.isNotEmpty
+          ? HiveBoxes.userDatas.values.first.user_password
+          : "no data");
   String _selectedLanguage = "EN"; // Tanlangan til
   Color _selectedColor = Colors.blue; // Tanlangan rang
   File? selectedImage;
+  bool _isPasswordVisible = false; // Password visibility state
+  @override
+  void initState() {
+    super.initState();
+
+    final imagePath = HiveBoxes.profilePhoto.get("profilePhoto");
+    if (imagePath != null) {
+      selectedImage = File(imagePath);
+    }
+  }
+
   @override
   void dispose() {
     _nameController.dispose();
@@ -28,21 +47,24 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildHeader(),
-              const SizedBox(height: 20),
-              _buildProfileSection(),
-              const SizedBox(height: 30),
-              _buildLanguageSection(),
-              const SizedBox(height: 30),
-              _buildThemeColorSection(),
-            ],
+    return BlocProvider(
+      create: (context) => ProfileCubit(),
+      child: Scaffold(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildHeader(),
+                const SizedBox(height: 20),
+                _buildProfileSection(),
+                const SizedBox(height: 30),
+                _buildLanguageSection(),
+                const SizedBox(height: 30),
+                _buildThemeColorSection(),
+              ],
+            ),
           ),
         ),
       ),
@@ -51,8 +73,8 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
 
   // Header qismi
   Widget _buildHeader() {
-    return const Text(
-      "My Settings",
+    return Text(
+      S.of(context).strSettinges,
       style: TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.bold,
@@ -66,21 +88,29 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Profile",
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
+        BlocBuilder<ProfileCubit, ProfileState>(
+          builder: (context, state) {
+            return Text(
+              S.of(context).strProfile,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            );
+          },
         ),
         const SizedBox(height: 8),
-        const Text(
-          "Your personal information and account security settings.",
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.black54,
-          ),
+        BlocBuilder<ProfileCubit, ProfileState>(
+          builder: (context, state) {
+            return Text(
+              S.of(context).strCategory,
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.black54,
+              ),
+            );
+          },
         ),
         const SizedBox(height: 16),
         Row(
@@ -89,14 +119,14 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
               radius: 30,
               backgroundImage: selectedImage != null
                   ? FileImage(selectedImage!)
-                  : AssetImage(AppImages.lesson1),
+                  : AssetImage(AppImages.no_photo),
             ),
             const SizedBox(width: 16),
             Column(
               children: [
                 OutlinedButton(
                   onPressed: () {
-                    pickImagefromGsllery();
+                    pickImageFromGallery();
                   },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Colors.blue),
@@ -104,8 +134,8 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: const Text(
-                    "Change Photo",
+                  child: Text(
+                    S.of(context).strChangePh,
                     style: TextStyle(
                       color: Colors.blue,
                       fontSize: 14,
@@ -114,15 +144,20 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
                 ),
                 const SizedBox(height: 8),
                 OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      HiveBoxes.profilePhoto.clear();
+                      selectedImage = null;
+                    });
+                  },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(color: Colors.grey),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: const Text(
-                    "Delete Photo",
+                  child: Text(
+                    S.of(context).strDelPh,
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 14,
@@ -134,11 +169,12 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
           ],
         ),
         const SizedBox(height: 16),
-        _buildTextField("Name", _nameController),
+        _buildTextField(S.of(context).strName, _nameController),
         const SizedBox(height: 16),
-        _buildTextField("Username", _usernameController),
+        _buildTextField(S.of(context).strYourPhone, _usernameController),
         const SizedBox(height: 16),
-        _buildTextField("Password", _passwordController, isPassword: true),
+        _buildTextField(S.of(context).strPassword, _passwordController,
+            isPassword: true),
       ],
     );
   }
@@ -146,82 +182,115 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
   // TextField yaratish uchun yordamchi funksiya
   Widget _buildTextField(String label, TextEditingController controller,
       {bool isPassword = false}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 14,
-            color: Colors.black54,
-          ),
-        ),
-        const SizedBox(height: 8),
-        TextField(
-          controller: controller,
-          obscureText: isPassword,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color: Colors.grey),
+    return BlocBuilder<ProfileCubit, ProfileState>(
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.black87,
+              ),
             ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: const BorderSide(color: Colors.grey),
+            const SizedBox(height: 8),
+            TextField(
+              controller: controller,
+              obscureText: isPassword ? !_isPasswordVisible : false,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: label,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(color: Colors.grey),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(color: Colors.grey),
+                ),
+                suffixIcon: isPassword
+                    ? IconButton(
+                        icon: Icon(
+                          _isPasswordVisible
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _isPasswordVisible = !_isPasswordVisible;
+                          });
+                        },
+                      )
+                    : null,
+              ),
             ),
-            suffixIcon: isPassword
-                ? const Icon(Icons.visibility, color: Colors.grey)
-                : null,
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 
   // Til tanlash bo'limi
+// Til tanlash bo'limi
   Widget _buildLanguageSection() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          "Language",
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.black87,
-          ),
-        ),
-        const SizedBox(height: 8),
-        const Text(
-          "Customize your language",
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.black54,
-          ),
-        ),
-        const SizedBox(height: 16),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+    return BlocConsumer<ProfileCubit, ProfileState>(
+      listener: (context, state) {
+        if (state.status == Status.SUCCESS) {
+          // Til o'zgarganidan keyin qayta yuklash kerak
+        }
+      },
+      builder: (context, state) {
+        final currentLanguage = state.language.toUpperCase();
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildLanguageButton("RU"),
-            const SizedBox(width: 8),
-            _buildLanguageButton("EN"),
-            const SizedBox(width: 8),
-            _buildLanguageButton("UZ"),
+            Text(
+              S.of(context).strLanguage,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              S.of(context).strCustomizeLg,
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.black54,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                _buildLanguageButton('RU'),
+                const SizedBox(width: 8),
+                _buildLanguageButton('EN'),
+                const SizedBox(width: 8),
+                _buildLanguageButton('UZ'),
+              ],
+            ),
           ],
-        ),
-      ],
+        );
+      },
     );
   }
 
-  // Til tugmasi yaratish uchun yordamchi funksiya
-  Widget _buildLanguageButton(String language) {
-    bool isSelected = _selectedLanguage == language;
+// Til tugmasi yaratish uchun yordamchi funksiya
+  Widget _buildLanguageButton(
+    String language,
+  ) {
+    final lang = HiveBoxes.applanguage.get("language") ?? "uz";
+    bool isSelected = language.toLowerCase() == lang.toLowerCase();
     return OutlinedButton(
       onPressed: () {
-        setState(() {
-          _selectedLanguage = language;
-        });
+        context.read<ProfileCubit>().enterLang(language.toLowerCase());
       },
       style: OutlinedButton.styleFrom(
         backgroundColor: isSelected ? Colors.blue : Colors.transparent,
@@ -245,8 +314,8 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Theme Color",
+        Text(
+          S.of(context).strThemeColor,
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -254,8 +323,8 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
           ),
         ),
         const SizedBox(height: 8),
-        const Text(
-          "Choose a preferred theme for the app",
+        Text(
+          S.of(context).strChoosePreTheme,
           style: TextStyle(
             fontSize: 14,
             color: Colors.black54,
@@ -301,11 +370,24 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
     );
   }
 
-  Future pickImagefromGsllery() async {
+  Future pickImageFromGallery() async {
     final returnedImage =
         await ImagePicker().pickImage(source: ImageSource.gallery);
-    setState(() {
-      selectedImage = File(returnedImage?.path ?? "");
-    });
+    if (returnedImage != null) {
+      final savedImagePath = await saveImageToLocal(File(returnedImage.path));
+      setState(() {
+        selectedImage = File(savedImagePath);
+      });
+
+      // Hive'ga rasm yo‘lini saqlaymiz
+      HiveBoxes.profilePhoto.put('profilePhoto', savedImagePath);
+    }
+  }
+
+  Future<String> saveImageToLocal(File imageFile) async {
+    final appDir = await getApplicationDocumentsDirectory();
+    final fileName = path.basename(imageFile.path);
+    final savedImage = await imageFile.copy('${appDir.path}/$fileName');
+    return savedImage.path;
   }
 }

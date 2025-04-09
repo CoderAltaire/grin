@@ -1,6 +1,9 @@
 {
   "@@locale": "uz",
   "strHome": "Asosiy",
+  "strCertificate": "Sertifikatlarim",
+  "strCourses": "Kurslar",
+  "strSettinges": "Sozlamalar",
   "strCategory": "Kategoriya",
   "strOrders": "Buyurtmalar",
   "strProfile": "Profil",
@@ -16,7 +19,6 @@
   "strEducation": "Ta’lim",
   "strBusiness": "Biznes va xizmatlar",
   "strMedical": "Sog’liqni saqlash va tibbiyot",
-  "strHome": "Uy va bog’",
   "strHobby": "Hobbi va dam olish",
   "strFindFromMap": "Xaritadan topish",
   "strContact": "Bog’lanish",

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:grin/core/common/pagination/custom_empty_widget.dart';
-import 'package:grin/core/values/app_assets.dart';
-import 'package:grin/generated/l10n.dart';
+import 'package:grin/core/routes/imports.dart';
 
 class NoInternetScreen extends StatelessWidget {
   const NoInternetScreen({super.key});

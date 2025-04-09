@@ -4,6 +4,8 @@ import 'package:grin/core/api/main_app/api_service.dart';
 import 'package:grin/core/api/main_app/http_result.dart';
 import 'package:grin/core/constants/constants.dart';
 import 'package:grin/core/error/failure.dart';
+import 'package:grin/core/service/local_data_sources/hive_names.dart';
+import 'package:grin/model/hive_models/user_data_model.dart';
 part 'login_state.dart';
 part 'login_cubit.freezed.dart';
 
@@ -12,24 +14,24 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> phoneSend(String phone, String password) async {
     emit(state.copyWith(status: Status.LOADING));
-    print("111");
     HttpResult result = await ApiService.login(phone, password);
-    print("22");
-
-    print(result.statusCode.toString());
-    print(result.result.toString());
-
-    print(phone);
-    print(password);
 
     print("_______________________CLOSED__________________________");
+    final data = result.result['data'];
+    print(result.result.toString());
+
     if (result.isSuccess) {
-      print("33");
+      UserDataModel userDataModel = UserDataModel(
+        fullname: data['fullname'] ?? "no data",
+        phone_number: phone,
+        user_password: password,
+        user_role: data['role'] ?? "no data",
+      );
+
+      HiveBoxes.userDatas.put(phone, userDataModel);
 
       emit(state.copyWith(phone: phone, status: Status.SUCCESS));
     } else {
-      print("444");
-
       emit(state.copyWith(status: Status.ERROR));
     }
   }

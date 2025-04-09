@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:grin/core/values/app_colors.dart';
-import 'package:grin/view/main/my_courses/widgets/my_courses_container.dart';
-import '../../../../core/utils/size_config.dart';
+import 'package:grin/core/routes/imports.dart';
 
 class MyCoursesScreen extends StatefulWidget {
   const MyCoursesScreen({super.key});
@@ -43,7 +40,7 @@ class _MyCoursesScreenState extends State<MyCoursesScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Here you can continue your started courses and track \nthe process",
+                  S.of(context).strStartedCourses,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: AppColors.black,
                         fontSize: 21,

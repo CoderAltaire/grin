@@ -38,6 +38,30 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Вы можете использовать приложение, приняв условия использования!"),
         "strPublicOffer":
             MessageLookupByLibrary.simpleMessage("Публичная оферта"),
+        "strHome": MessageLookupByLibrary.simpleMessage("Главная"),
+        "strCourses": MessageLookupByLibrary.simpleMessage("Курсы"),
+        "strCertificate": MessageLookupByLibrary.simpleMessage("Сертификат"),
+        "strSettinges": MessageLookupByLibrary.simpleMessage("Настройки"),
+        "strLanguage": MessageLookupByLibrary.simpleMessage("Язык"),
+        "strCustomizeLg":
+            MessageLookupByLibrary.simpleMessage("Настройте свой язык"),
+        "strChoosePreTheme": MessageLookupByLibrary.simpleMessage(
+            "Выберите предпочтительную тему для приложения"),
+        "strThemeColor": MessageLookupByLibrary.simpleMessage("Цвет темы"),
+        "strName": MessageLookupByLibrary.simpleMessage("Имя"),
+        "strUserName": MessageLookupByLibrary.simpleMessage("Имя пользователя"),
+        "strPassword": MessageLookupByLibrary.simpleMessage("Пароль"),
+        "strRecCertificate":
+            MessageLookupByLibrary.simpleMessage("Сертификаты получены"),
+        "strStartedCourses": MessageLookupByLibrary.simpleMessage(
+            "Здесь вы можете продолжить начатые курсы и отслеживать процесс"),
+        "strCourseProgram":
+            MessageLookupByLibrary.simpleMessage("Курсы и программы"),
+        "strGetStarted": MessageLookupByLibrary.simpleMessage("Начать"),
+        "strBack": MessageLookupByLibrary.simpleMessage("Назад"),
+        "strMyResults": MessageLookupByLibrary.simpleMessage("Результаты"),
+        "strChangePh": MessageLookupByLibrary.simpleMessage("Изменить фото"),
+        "strDelPh": MessageLookupByLibrary.simpleMessage("Удалить фото"),
         "language": MessageLookupByLibrary.simpleMessage("узб"),
         "myAddress": MessageLookupByLibrary.simpleMessage("Введите ваш адрес"),
         "next": MessageLookupByLibrary.simpleMessage("Следующий"),
@@ -236,7 +260,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "strHighestRating":
             MessageLookupByLibrary.simpleMessage("Высший рейтинг"),
         "strHobby": MessageLookupByLibrary.simpleMessage("Хобби и отдых"),
-        "strHome": MessageLookupByLibrary.simpleMessage("Дом и сад"),
         "strHomeNumber": MessageLookupByLibrary.simpleMessage("Дом"),
         "strHouse": MessageLookupByLibrary.simpleMessage("Недвижимость"),
         "strIn100grams":
@@ -561,8 +584,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "countEdited": MessageLookupByLibrary.simpleMessage("Номер изменился"),
         "strServices": MessageLookupByLibrary.simpleMessage("Услуги"),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
-        "plsWait": MessageLookupByLibrary.simpleMessage("Местоположение определяется"),
-
+        "plsWait":
+            MessageLookupByLibrary.simpleMessage("Местоположение определяется"),
         "termOfUse":
             MessageLookupByLibrary.simpleMessage("Условиями использования"),
         "geoLocation": MessageLookupByLibrary.simpleMessage(

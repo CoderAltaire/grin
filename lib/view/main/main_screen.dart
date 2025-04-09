@@ -1,22 +1,4 @@
-import 'dart:io';
-import 'package:grin/cubit/main_tab/main_tab_cubit.dart';
-import 'package:grin/core/constants/constants.dart';
-import 'package:grin/core/extension/widget_extantion.dart';
-import 'package:grin/core/utils/log_service.dart';
-import 'package:grin/core/utils/size_config.dart';
-import 'package:grin/core/values/app_assets.dart';
-import 'package:grin/core/values/app_colors.dart';
-import 'package:grin/core/widgets/custom_bottom_tab_item.dart';
-
-import 'package:grin/generated/l10n.dart';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:grin/view/drawer/view/my_drawer_screen.dart';
-import 'package:grin/view/main/home/view/home_screen.dart';
-import 'package:grin/view/main/my_certificates/view/my_certificate_screen.dart';
-import 'package:grin/view/main/my_courses/view/my_courses_screen.dart';
-import 'package:grin/view/main/profile/view/my_settinges_screen.dart';
+import 'package:grin/core/routes/imports.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -59,18 +41,22 @@ class _MainScreenState extends State<MainScreen>
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                'Kelvin Klein',
+                HiveBoxes.userDatas.isNotEmpty
+                    ? HiveBoxes.userDatas.values.first.fullname
+                    : "no data",
                 style: Theme.of(context)
                     .textTheme
                     .titleLarge
-                    ?.copyWith(fontWeight: FontWeight.w500),
+                    ?.copyWith(fontWeight: FontWeight.w500, fontSize: 15),
               ),
               SizedBox(width: wi(10)),
               InkWell(
                 borderRadius: BorderRadius.circular(50),
                 onTap: () => tabController.animateTo(3),
                 child: CircleAvatar(
-                  backgroundImage: AssetImage(AppImages.lesson1),
+                  backgroundImage: HiveBoxes.profilePhoto.isNotEmpty
+                      ? FileImage(File(HiveBoxes.profilePhoto.values.first))
+                      : AssetImage(AppImages.no_photo),
                 ),
               ),
             ],
@@ -79,19 +65,24 @@ class _MainScreenState extends State<MainScreen>
         drawer: MyDrawerScreen(),
         resizeToAvoidBottomInset: false,
         extendBody: true,
-        body: Stack(
-          children: [
-            TabBarView(
-              controller: tabController,
-              physics: const NeverScrollableScrollPhysics(),
+        body: BlocConsumer<ProfileCubit, ProfileState>(
+          builder: (context, state) {
+            return Stack(
               children: [
-                HomeScreen(),
-                MyCoursesScreen(),
-                MyCertificateScreen(),
-                MySettingsScreen(),
+                TabBarView(
+                  controller: tabController,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: [
+                    HomeScreen(),
+                    MyCoursesScreen(),
+                    MyCertificateScreen(),
+                    MySettingsScreen(),
+                  ],
+                ),
               ],
-            ),
-          ],
+            );
+          },
+          listener: (BuildContext context, Object? state) {},
         ),
         bottomNavigationBar: SafeArea(
           bottom: false,
@@ -118,27 +109,27 @@ class _MainScreenState extends State<MainScreen>
                   icon: AppIcons.ic_home,
                   onTap: () => tabController.animateTo(0),
                   index: 0,
-                  label: "Home",
+                  label: S.of(context).strHome,
                 ),
                 BottomTabItem(
                     currentIndex: state.main,
                     icon: AppIcons.ic_course,
                     onTap: () => tabController.animateTo(1),
                     index: 1,
-                    label: "My Courses"),
+                    label: S.of(context).strCourses),
                 BottomTabItem(
                   currentIndex: state.main,
                   icon: AppIcons.ic_certificate,
                   onTap: () => tabController.animateTo(2),
                   index: 2,
-                  label: 'Certificate',
+                  label: S.of(context).strCertificate,
                 ),
                 BottomTabItem(
                   index: 3,
                   currentIndex: state.main,
                   icon: AppIcons.ic_settinges,
                   onTap: () => tabController.animateTo(3),
-                  label: "Settings",
+                  label: S.of(context).strSettinges,
                 ),
               ],
             ).paddingOnly(

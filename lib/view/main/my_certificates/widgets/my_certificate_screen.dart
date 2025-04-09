@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grin/core/routes/imports.dart';
+import 'package:grin/generated/l10n.dart';
 import 'package:grin/view/main/my_certificates/widgets/my_certificate_container.dart';
 
 import '../../../../core/utils/size_config.dart';
@@ -32,7 +33,7 @@ class _MyCertificateScreenState extends State<MyCertificateScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Certificates received",
+              S.of(context).strRecCertificate,
               style: Theme.of(context)
                   .textTheme
                   .titleLarge

@@ -240,8 +240,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "strHighestRating":
             MessageLookupByLibrary.simpleMessage("Eng yuqori reyting"),
         "strHobby": MessageLookupByLibrary.simpleMessage("Hobbi va dam olish"),
-        "strHome": MessageLookupByLibrary.simpleMessage("Uy va bog’"),
+        "strHome": MessageLookupByLibrary.simpleMessage("Asosiy"),
+        "strCourses": MessageLookupByLibrary.simpleMessage("Kurslar"),
+        "strCertificate": MessageLookupByLibrary.simpleMessage("Sertifikatlar"),
+        "strSettinges": MessageLookupByLibrary.simpleMessage("Sozlamalar"),
         "strHomeNumber": MessageLookupByLibrary.simpleMessage("Uy"),
+        "strLanguage": MessageLookupByLibrary.simpleMessage("Til"),
+        "strCustomizeLg":
+            MessageLookupByLibrary.simpleMessage("Tilingizni sozlang"),
+        "strChoosePreTheme": MessageLookupByLibrary.simpleMessage(
+            "Ilova uchun o'zingiz yoqtirgan mavzuni tanlang"),
+        "strThemeColor": MessageLookupByLibrary.simpleMessage("Mavzu rangi"),
+        "strName": MessageLookupByLibrary.simpleMessage("Ism"),
+        "strUserName":
+            MessageLookupByLibrary.simpleMessage("foydalanuvchi nomi"),
+        "strPassword": MessageLookupByLibrary.simpleMessage("Parol"),
+        "strGetStarted": MessageLookupByLibrary.simpleMessage("Boshlash"),
+        "strBack": MessageLookupByLibrary.simpleMessage("Orqaga"),
+        "strMyResults": MessageLookupByLibrary.simpleMessage("Natijalar"),
+        "strChangePh":
+            MessageLookupByLibrary.simpleMessage("Rasmni o'zgartirish"),
+        "strDelPh": MessageLookupByLibrary.simpleMessage("Rasmni O'chrish"),
+        "strRecCertificate": MessageLookupByLibrary.simpleMessage(
+            "Qabul qilingan sertifikatlar"),
+        "strStartedCourses": MessageLookupByLibrary.simpleMessage(
+            "Bu yerda siz boshlagan kurslarni davom ettirishingiz va taraqqiyotni kuzatishingiz mumkin"),
+        "strCourseProgram":
+            MessageLookupByLibrary.simpleMessage("Kurslar va dasturlar"),
         "strHouse": MessageLookupByLibrary.simpleMessage("Ko‘chmas mulk"),
         "strIn100grams":
             MessageLookupByLibrary.simpleMessage("100 gramm mahsulotda"),
@@ -565,12 +590,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "countEdited": MessageLookupByLibrary.simpleMessage("Soni o`zgardi"),
         "strServices": MessageLookupByLibrary.simpleMessage("Xizmatlar"),
         "settings": MessageLookupByLibrary.simpleMessage("Sozlamalar"),
-
         "termOfUse":
             MessageLookupByLibrary.simpleMessage("Foydalanish shartlari"),
-        "plsWait": MessageLookupByLibrary.simpleMessage("Lokatsiya aniqlanmoqda"),
-
-            
+        "plsWait":
+            MessageLookupByLibrary.simpleMessage("Lokatsiya aniqlanmoqda"),
         "geoLocation": MessageLookupByLibrary.simpleMessage(
             "Bir Qadam ilovasi joylashuvingizga kirishni soʻramoqda"),
         "sendMessageTo": MessageLookupByLibrary.simpleMessage(

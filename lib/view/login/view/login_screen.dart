@@ -1,10 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:grin/Cubit/Login/login_cubit.dart';
-import 'package:grin/core/constants/constants.dart';
-import 'package:grin/core/utils/general_functions.dart';
-import 'package:grin/core/utils/validator.dart';
-import 'package:grin/generated/l10n.dart';
-
 import '../../../core/routes/imports.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -15,7 +8,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final focusNode = FocusNode();
 
@@ -50,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
             TextFieldCountry(
               // labelText: AppStrings.strNewPhoneNumber,
               hintText: '',
-              controller: emailController,
+              controller: phoneController,
               focusNode: focusNode,
               validator: ((v) => Validator.phoneChecker(
                   value: v ?? "", message: S.current.strYourPhone)),
@@ -89,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
               builder: (context, state) {
                 return ElevatedButton(
                     onPressed: () {
-                      String phone = MyFunctions.getPhone(emailController.text);
+                      String phone = MyFunctions.getPhone(phoneController.text);
                       context
                           .read<LoginCubit>()
                           .phoneSend(phone, passwordController.text);

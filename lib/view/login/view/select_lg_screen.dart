@@ -1,9 +1,4 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:grin/core/constants/constants.dart';
-import 'package:grin/cubit/profile/profile_bloc.dart';
-import 'package:grin/generated/l10n.dart';
-import 'package:grin/view/login/widgets/select_lg_container.dart';
-import '../../../core/routes/imports.dart';
+import 'package:grin/core/routes/imports.dart';
 
 class SelectLgScreen extends StatefulWidget {
   const SelectLgScreen({super.key});
@@ -17,10 +12,6 @@ class _SelectLgScreenState extends State<SelectLgScreen> {
 
   final List<Map<String, String>> languages = [
     {
-      'image': AppImages.imgArbFlag,
-      'language': 'Uzbek',
-    },
-    {
       'image': AppImages.imgEngFlag,
       'language': 'Russian',
     },
@@ -28,13 +19,15 @@ class _SelectLgScreenState extends State<SelectLgScreen> {
       'image': AppImages.imgKorFlag,
       'language': 'English',
     },
+    {
+      'image': AppImages.imgArbFlag,
+      'language': 'Uzbek',
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
-    List<LangModel> lanList = [
-      LangModel(
-          title: S.of(context).strUzbek, code: 'uz', icon: AppImages.icUzFlag),
+    final List<LangModel> lanList = [
       LangModel(
           title: S.of(context).strRussian,
           code: 'ru',
@@ -43,7 +36,17 @@ class _SelectLgScreenState extends State<SelectLgScreen> {
           title: S.of(context).strEnglish,
           code: 'en',
           icon: AppImages.icEngFlag),
+      LangModel(
+          title: S.of(context).strUzbek, code: 'uz', icon: AppImages.icUzFlag),
     ];
+
+    final List<Map<String, String>> languages = lanList.map((lang) {
+      return {
+        'image': lang.icon,
+        'language': lang.title,
+      };
+    }).toList();
+
     return BlocConsumer<ProfileCubit, ProfileState>(
         listener: (BuildContext context, ProfileState state) {
       if (state.status == Status.SUCCESS) {}
@@ -72,7 +75,8 @@ class _SelectLgScreenState extends State<SelectLgScreen> {
                     onTap: () async {
                       setState(() {
                         selectedIndex = index;
-                        bloc.enterLang(lanList[selectedIndex].code);
+                        bloc.enterLang(
+                            lanList[selectedIndex].code); // Tilni o‘zgartirish
                       });
                     },
                   );
@@ -81,17 +85,17 @@ class _SelectLgScreenState extends State<SelectLgScreen> {
                   height: he(45),
                   radius: 10,
                   bgColor: AppColors.whiteBlue,
-                  text: 'Get Started',
+                  text: S.of(context).strGetStarted,
                   onTap: () async {
                     await bloc.enterLang(lanList[selectedIndex].code);
                     Navigator.pushNamed(context, AppRoutes.mainScreen);
                   },
                 ).paddingSymmetric(horizontal: wi(30), vertical: he(10)),
                 CustomButton(
+                  text: S.of(context).strBack,
                   height: 45,
                   border: Border.all(color: AppColors.whiteBlue),
                   bgColor: AppColors.white,
-                  text: 'Back',
                   textColor: AppColors.whiteBlue,
                   onTap: () {
                     Navigator.pop(context);

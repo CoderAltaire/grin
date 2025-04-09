@@ -56,4 +56,5 @@ class AppImages {
   static const String logo = 'assets/images/logo.png';
   static const String icEngFlag = 'assets/images/ic_eng_flag.png';
   static const String lesson1 = 'assets/images/lessons1.png';
+  static const String no_photo = 'assets/images/no_photo.png';
 }

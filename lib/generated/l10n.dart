@@ -59,7 +59,8 @@ class S {
       args: [],
     );
   }
- /// `Profile`
+
+  /// `Profile`
   String get strProfile {
     return Intl.message(
       'Profile',
@@ -68,6 +69,169 @@ class S {
       args: [],
     );
   }
+
+  String get strName {
+    return Intl.message(
+      'Name',
+      name: 'strName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strGetStarted {
+    return Intl.message(
+      'Get Started',
+      name: 'strGetStarted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strBack {
+    return Intl.message(
+      'Get Started',
+      name: 'strBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strMyResults {
+    return Intl.message(
+      'Get Started',
+      name: 'strMyResults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strChangePh {
+    return Intl.message(
+      'Get Started',
+      name: 'strChangePh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strDelPh {
+    return Intl.message(
+      'Get Started',
+      name: 'strDelPh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strLanguage {
+    return Intl.message(
+      'language',
+      name: 'strLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strCustomizeLg {
+    return Intl.message(
+      'language',
+      name: 'strCustomizeLg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strChoosePreTheme {
+    return Intl.message(
+      'ChoosePreTheme',
+      name: 'strChoosePreTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strThemeColor {
+    return Intl.message(
+      'ThemeColor',
+      name: 'strThemeColor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strUserName {
+    return Intl.message(
+      'UserName',
+      name: 'strUserName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strPassword {
+    return Intl.message(
+      'Password',
+      name: 'strPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strRecCertificate {
+    return Intl.message(
+      'RecCertificate',
+      name: 'strRecCertificate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strStartedCourses {
+    return Intl.message(
+      'StrCourses',
+      name: 'strStartedCourses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strCourseProgram {
+    return Intl.message(
+      'Courses and Programmmmmmm',
+      name: 'strCourseProgram',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strCourses {
+    return Intl.message(
+      'Courses',
+      name: 'strCourses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strSettinges {
+    return Intl.message(
+      'Settinges',
+      name: 'strSettinges',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get strCertificate {
+    return Intl.message(
+      'Certificates',
+      name: 'strCertificate',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Comments`
   String get strFeed {
     return Intl.message(
@@ -86,7 +250,8 @@ class S {
       args: [],
     );
   }
-    /// `Category`
+
+  /// `Category`
   String get strCategory {
     return Intl.message(
       'Category',
@@ -96,7 +261,6 @@ class S {
     );
   }
 
-
   /// `Orders`
   String get strOrders {
     return Intl.message(
@@ -104,8 +268,8 @@ class S {
       name: 'strOrders',
       desc: '',
       args: [],
-    );}
-
+    );
+  }
 
   /// `Select Language`
   String get strSelectLanguage {
@@ -115,7 +279,9 @@ class S {
       desc: '',
       args: [],
     );
-  }  /// `Uzbek`
+  }
+
+  /// `Uzbek`
   String get strUzbek {
     return Intl.message(
       'Uzbek',
@@ -144,6 +310,7 @@ class S {
       args: [],
     );
   }
+
   /// `Log Out`
   String get strLogOut {
     return Intl.message(
@@ -153,6 +320,7 @@ class S {
       args: [],
     );
   }
+
   /// `Confirmation Code`
   String get strConfirmationCode {
     return Intl.message(
@@ -163,8 +331,7 @@ class S {
     );
   }
 
-  
- /// `Enter your Phone Number`
+  /// `Enter your Phone Number`
   String get strEnterYourPhone {
     return Intl.message(
       'Enter your Phone Number',
@@ -173,6 +340,7 @@ class S {
       args: [],
     );
   }
+
   /// `Enter a valid phone number.`
   String get strEnterValidPhone {
     return Intl.message(
@@ -203,7 +371,6 @@ class S {
     );
   }
 
-
   /// `Your Phone Number`
   String get strYourPhone {
     return Intl.message(
@@ -224,7 +391,6 @@ class S {
     );
   }
 
-
   /// `Incorrect Code`
   String get strWrongCode {
     return Intl.message(
@@ -234,6 +400,7 @@ class S {
       args: [],
     );
   }
+
   /// `Cache Error`
   String get strCachFailure {
     return Intl.message(
@@ -264,7 +431,7 @@ class S {
     );
   }
 
-    /// `Authorization Error`
+  /// `Authorization Error`
   String get strUnAuthorizationFailure {
     return Intl.message(
       'Authorization Error',
@@ -273,6 +440,7 @@ class S {
       args: [],
     );
   }
+
   /// `Internet Connection Error`
   String get strCheckInternetConnection {
     return Intl.message(
@@ -282,7 +450,6 @@ class S {
       args: [],
     );
   }
-
 
   /// `Email or Password is incorrect`
   String get strEmailOrPasswordWrong {
@@ -307,13 +474,14 @@ class S {
   /// `Home and garden`
   String get strHome {
     return Intl.message(
-      'Home and garden',
+      'Home',
       name: 'strHome',
       desc: '',
       args: [],
     );
   }
-    /// `sum`
+
+  /// `sum`
   String get strSum {
     return Intl.message(
       'sum',
@@ -322,7 +490,8 @@ class S {
       args: [],
     );
   }
-    /// `Retry`
+
+  /// `Retry`
   String get strRetry {
     return Intl.message(
       'Retry',
@@ -352,8 +521,7 @@ class S {
     );
   }
 
-
-   /// `Attention, Error!`
+  /// `Attention, Error!`
   String get strAttentionError {
     return Intl.message(
       'Attention, Error!',
@@ -362,7 +530,6 @@ class S {
       args: [],
     );
   }
-
 
   /// `No Internet Connection!`
   String get strNoConnectionInternet {
@@ -373,7 +540,6 @@ class S {
       args: [],
     );
   }
-
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

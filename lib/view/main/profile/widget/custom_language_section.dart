@@ -18,7 +18,7 @@ class _CustomLanguageSectionState extends State<CustomLanguageSection> {
           "Language",
           style: TextStyle(
             fontSize: 18,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
             color: Colors.black87,
           ),
         ),

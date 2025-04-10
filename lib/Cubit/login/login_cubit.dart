@@ -17,8 +17,8 @@ class LoginCubit extends Cubit<LoginState> {
     HttpResult result = await ApiService.login(phone, password);
 
     print("_______________________CLOSED__________________________");
+
     final data = result.result['data'];
-    print(result.result.toString());
 
     if (result.isSuccess) {
       UserDataModel userDataModel = UserDataModel(
@@ -29,6 +29,8 @@ class LoginCubit extends Cubit<LoginState> {
       );
 
       HiveBoxes.userDatas.put(phone, userDataModel);
+      HiveBoxes.acces_token.put('acces_token', result.result['token']);
+      print(HiveBoxes.acces_token.isNotEmpty);
 
       emit(state.copyWith(phone: phone, status: Status.SUCCESS));
     } else {

@@ -1,4 +1,7 @@
+import 'package:grin/Cubit/get_all_courses/get_all_courses_cubit.dart';
+import 'package:grin/core/api/main_app/api_service.dart';
 import 'package:grin/core/routes/imports.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -53,12 +56,19 @@ class _MainScreenState extends State<MainScreen>
               InkWell(
                 borderRadius: BorderRadius.circular(50),
                 onTap: () => tabController.animateTo(3),
-                child: CircleAvatar(
-                  backgroundImage: HiveBoxes.profilePhoto.isNotEmpty
-                      ? FileImage(File(HiveBoxes.profilePhoto.values.first))
-                      : AssetImage(AppImages.no_photo),
+                child: ValueListenableBuilder(
+                  valueListenable: HiveBoxes.profilePhoto.listenable(),
+                  builder: (context, Box box, child) {
+                    final path = box.get("profilePhoto");
+
+                    return CircleAvatar(
+                      backgroundImage: path != null
+                          ? FileImage(File(path))
+                          : AssetImage(AppImages.no_photo) as ImageProvider,
+                    );
+                  },
                 ),
-              ),
+              )
             ],
           ),
         ),

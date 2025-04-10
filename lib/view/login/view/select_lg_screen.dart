@@ -10,43 +10,29 @@ class SelectLgScreen extends StatefulWidget {
 class _SelectLgScreenState extends State<SelectLgScreen> {
   int selectedIndex = -1;
 
+  final List<LangModel> lanList = [
+    LangModel(title: "Russian ", code: 'ru', icon: AppImages.icRusFlag),
+    LangModel(title: "English ", code: 'en', icon: AppImages.icEngFlag),
+    LangModel(title: "Uzbek ", code: 'uz', icon: AppImages.icUzFlag),
+  ];
+
   final List<Map<String, String>> languages = [
     {
-      'image': AppImages.imgEngFlag,
+      'image': AppImages.icRusFlag,
       'language': 'Russian',
     },
     {
-      'image': AppImages.imgKorFlag,
+      'image': AppImages.icEngFlag,
       'language': 'English',
     },
     {
-      'image': AppImages.imgArbFlag,
+      'image': AppImages.icUzFlag,
       'language': 'Uzbek',
     },
   ];
 
   @override
   Widget build(BuildContext context) {
-    final List<LangModel> lanList = [
-      LangModel(
-          title: S.of(context).strRussian,
-          code: 'ru',
-          icon: AppImages.icRusFlag),
-      LangModel(
-          title: S.of(context).strEnglish,
-          code: 'en',
-          icon: AppImages.icEngFlag),
-      LangModel(
-          title: S.of(context).strUzbek, code: 'uz', icon: AppImages.icUzFlag),
-    ];
-
-    final List<Map<String, String>> languages = lanList.map((lang) {
-      return {
-        'image': lang.icon,
-        'language': lang.title,
-      };
-    }).toList();
-
     return BlocConsumer<ProfileCubit, ProfileState>(
         listener: (BuildContext context, ProfileState state) {
       if (state.status == Status.SUCCESS) {}
@@ -75,8 +61,8 @@ class _SelectLgScreenState extends State<SelectLgScreen> {
                     onTap: () async {
                       setState(() {
                         selectedIndex = index;
-                        bloc.enterLang(
-                            lanList[selectedIndex].code); // Tilni o‘zgartirish
+                        // Only update language preference without affecting Windsurf
+                        bloc.enterLang(lanList[selectedIndex].code);
                       });
                     },
                   );
@@ -85,14 +71,16 @@ class _SelectLgScreenState extends State<SelectLgScreen> {
                   height: he(45),
                   radius: 10,
                   bgColor: AppColors.whiteBlue,
-                  text: S.of(context).strGetStarted,
+                  text: 'Get Started',
                   onTap: () async {
-                    await bloc.enterLang(lanList[selectedIndex].code);
-                    Navigator.pushNamed(context, AppRoutes.mainScreen);
+                    if (selectedIndex != -1) {
+                      await bloc.enterLang(lanList[selectedIndex].code);
+                      Navigator.pushNamed(context, AppRoutes.mainScreen);
+                    }
                   },
                 ).paddingSymmetric(horizontal: wi(30), vertical: he(10)),
                 CustomButton(
-                  text: S.of(context).strBack,
+                  text: "Back",
                   height: 45,
                   border: Border.all(color: AppColors.whiteBlue),
                   bgColor: AppColors.white,
@@ -119,7 +107,7 @@ class _SelectLgScreenState extends State<SelectLgScreen> {
             text: 'Select the\n',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   fontSize: 38,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
           ),
@@ -140,7 +128,7 @@ class _SelectLgScreenState extends State<SelectLgScreen> {
                 'language',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontSize: 38,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                       color: Colors
                           .white, // This color will be overridden by the gradient
                     ),
@@ -152,7 +140,7 @@ class _SelectLgScreenState extends State<SelectLgScreen> {
             text: ' you\nwant to learn',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   fontSize: 38,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w500,
                   color: Colors.black,
                 ),
           ),

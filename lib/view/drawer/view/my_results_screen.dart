@@ -37,7 +37,7 @@ class _MyResultsScreenState extends State<MyResultsScreen> {
                     'The English Master Course',
                     style: TextStyle(
                         fontSize: 21,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         color: AppColors.black1),
                   ),
                 ),
@@ -96,7 +96,7 @@ class _MyResultsScreenState extends State<MyResultsScreen> {
                 'Course Materials',
                 style: TextStyle(
                     color: AppColors.black1,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     fontSize: 16),
               ),
               SizedBox(height: he(15)),

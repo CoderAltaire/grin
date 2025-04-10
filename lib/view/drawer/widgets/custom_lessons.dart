@@ -30,7 +30,7 @@ class _CustomLessonsState extends State<CustomLessons> {
                   title: Text(
                     widget.lessons[index]['title'] ?? "empty",
                     style: TextStyle(
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         fontSize: 16,
                         color: AppColors.whiteBlueText),
                   ),

@@ -110,7 +110,7 @@ class _CourseContainerState extends State<CourseContainer> {
                       widget.description,
                       style: TextStyle(
                         fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                         color: Colors.black87,
                       ),
                     ),
@@ -151,7 +151,7 @@ class _CourseContainerState extends State<CourseContainer> {
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),

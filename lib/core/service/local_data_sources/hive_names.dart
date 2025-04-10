@@ -9,6 +9,8 @@ class HiveBoxes {
   static final Box<String> applanguage = Hive.box(HiveBoxNames.appLanguage);
   static final Box<Color> primaryColor = Hive.box(HiveBoxNames.primaryColor);
   static final Box<dynamic> profilePhoto = Hive.box(HiveBoxNames.profilePhoto);
+  static final Box<String> acces_token = Hive.box(HiveBoxNames.acces_token);
+  static final Box<String> refresh_token = Hive.box(HiveBoxNames.refresh_token);
 
   static Future<void> clearAllBoxes() async {
     await Future.wait([]);
@@ -23,4 +25,6 @@ class HiveBoxNames {
   static const String appLanguage = "appLanguage";
   static const String primaryColor = "primaryColor";
   static const String profilePhoto = "profilePhoto";
+  static const String acces_token = "accestoken";
+  static const String refresh_token = "refreshtoken";
 }

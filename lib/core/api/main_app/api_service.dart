@@ -1,10 +1,12 @@
 import 'dart:convert';
 export 'package:http_parser/http_parser.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:grin/core/api/main_app/api_service.dart';
 import 'package:grin/core/api/main_app/http_inspector.dart';
 import 'package:grin/core/api/main_app/http_result.dart';
 import 'package:grin/core/api/main_app/list_api.dart';
+import 'package:grin/core/routes/imports.dart';
 import 'package:grin/core/utils/log_service.dart';
 import 'package:http/http.dart' as http;
 
@@ -15,7 +17,7 @@ class ApiService {
   static const String _baseUrl =
       isDev ? "http://161.97.140.68:3000/" : "http://161.97.140.68:3000/";
 
-  static final token = "";
+  static final token = HiveBoxes.acces_token.get("acces_token") ?? "";
 
   static Map<String, String> _header() {
     if (token.isEmpty) {
@@ -23,6 +25,7 @@ class ApiService {
         "Content-Type": "application/json",
       };
     }
+    print('token is not empty$token');
     return {
       "Content-Type": "application/json",
       "Authorization": 'Bearer ${token}'
@@ -43,6 +46,11 @@ class ApiService {
     };
 
     return await _post(ListAPI.login, body: body);
+  }
+
+  //=====GET ALL COURSES =====
+  static Future<HttpResult> getAllCourses() async {
+    return await _get(ListAPI.allCourses);
   }
 
   static Future<HttpResult> _post(

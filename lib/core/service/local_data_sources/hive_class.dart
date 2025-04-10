@@ -15,5 +15,7 @@ class HiveService {
     await Hive.openBox<String>(HiveBoxNames.appLanguage);
     await Hive.openBox<Color>(HiveBoxNames.primaryColor);
     await Hive.openBox<dynamic>(HiveBoxNames.profilePhoto);
+    await Hive.openBox<String>(HiveBoxNames.acces_token);
+    await Hive.openBox<String>(HiveBoxNames.refresh_token);
   }
 }

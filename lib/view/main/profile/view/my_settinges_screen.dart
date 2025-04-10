@@ -1,3 +1,4 @@
+import 'package:grin/view/main/profile/widget/all_functions.dart';
 import 'package:path/path.dart' as path;
 
 import '../../../../core/routes/imports.dart';
@@ -77,7 +78,7 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
       S.of(context).strSettinges,
       style: TextStyle(
         fontSize: 24,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w600,
         color: Colors.black87,
       ),
     );
@@ -127,13 +128,14 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
                 OutlinedButton(
                   onPressed: () {
                     pickImageFromGallery();
+                    setState(() {});
                   },
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.blue),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
+                      side: const BorderSide(color: Colors.blue),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      minimumSize: Size(wi(160), he(35))),
                   child: Text(
                     S.of(context).strChangePh,
                     style: TextStyle(
@@ -151,6 +153,7 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
                     });
                   },
                   style: OutlinedButton.styleFrom(
+                    minimumSize: Size(wi(160), he(35)),
                     side: const BorderSide(color: Colors.grey),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -253,7 +256,7 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
               S.of(context).strLanguage,
               style: TextStyle(
                 fontSize: 18,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w600,
                 color: Colors.black87,
               ),
             ),
@@ -318,7 +321,7 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
           S.of(context).strThemeColor,
           style: TextStyle(
             fontSize: 18,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
             color: Colors.black87,
           ),
         ),
@@ -340,7 +343,7 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
             const SizedBox(width: 8),
             _buildColorButton(Colors.purple),
             const SizedBox(width: 8),
-            _buildColorButton(Colors.red),
+            _buildColorButton(AppColors.red),
             const SizedBox(width: 8),
             _buildColorButton(Colors.indigo),
           ],

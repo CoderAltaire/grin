@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Text("Welcome back",
                 style: TextStyle(
                     fontSize: he(38),
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     color: AppColors.black1)),
             SizedBox(height: SizeConfig.screenHeight! * 0.02),
             Text(
@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             AppStrings.strLogIn,
                             style: TextStyle(
                                 fontSize: 20,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w500,
                                 color: AppColors.white),
                           ));
               },

@@ -44,7 +44,7 @@ class _MyCoursesScreenState extends State<MyCoursesScreen> {
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: AppColors.black,
                         fontSize: 21,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
                       ),
                 ),
                 SizedBox(height: he(20)),

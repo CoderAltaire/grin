@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grin/Cubit/Login/login_cubit.dart';
+import 'package:grin/Cubit/get_all_courses/get_all_courses_cubit.dart';
 import 'package:grin/core/service/local_data_sources/hive_class.dart';
+import 'package:grin/core/service/local_data_sources/hive_names.dart';
 import 'package:grin/cubit/main_tab/main_tab_cubit.dart';
 import 'package:grin/cubit/profile/profile_bloc.dart';
 import 'package:grin/core/routes/app_pages.dart';
@@ -28,6 +30,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ProfileCubit()),
         BlocProvider(create: (context) => MainTabCubit()),
         BlocProvider(create: (context) => LoginCubit()),
+        BlocProvider(
+          create: (context) => GetAllCoursesCubit(),
+        )
       ],
       child: BlocBuilder<ProfileCubit, ProfileState>(builder: (context, state) {
         return MaterialApp(
@@ -54,7 +59,9 @@ class MyApp extends StatelessWidget {
               child: child!,
             );
           },
-          initialRoute: AppRoutes.login,
+          initialRoute: HiveBoxes.acces_token.isEmpty
+              ? AppRoutes.login
+              : AppRoutes.mainScreen,
         );
       }),
     );

@@ -43,7 +43,7 @@ class BottomTabItem extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall!.copyWith(
                   fontSize: isSelected ? 14 : 12,
                   color: isSelected ? AppColors.primaryColor : AppColors.grey3,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w400,
                 ),
             child: Text(
               label,

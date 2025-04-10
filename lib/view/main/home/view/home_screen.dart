@@ -1,3 +1,4 @@
+import 'package:grin/core/api/main_app/api_service.dart';
 import 'package:grin/core/routes/imports.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -57,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   S.of(context).strCourseProgram,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: AppColors.black,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
                         fontSize: 21,
                       ),
                 ),

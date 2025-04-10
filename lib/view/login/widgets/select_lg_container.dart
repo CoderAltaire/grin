@@ -54,8 +54,8 @@ class SelectLgContainerWidget extends StatelessWidget {
               language,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     fontSize: 21,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.black,
                   ),
             ),
           ],

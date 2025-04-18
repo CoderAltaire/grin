@@ -17,18 +17,19 @@ class ApiService {
   static const String _baseUrl =
       isDev ? "http://161.97.140.68:3000/" : "http://161.97.140.68:3000/";
 
-  static final token = HiveBoxes.acces_token.get("acces_token") ?? "";
-
   static Map<String, String> _header() {
+    final token = HiveBoxes.acces_token.get('acces_token') ?? "";
+    print('bu token == $token');
     if (token.isEmpty) {
+      print('token bosh');
       return {
         "Content-Type": "application/json",
       };
     }
-    print('token is not empty$token');
+    print('token is not empty $token');
     return {
       "Content-Type": "application/json",
-      "Authorization": 'Bearer ${token}'
+      "Authorization": 'Bearer $token'
     };
   }
 
@@ -51,6 +52,16 @@ class ApiService {
   //=====GET ALL COURSES =====
   static Future<HttpResult> getAllCourses() async {
     return await _get(ListAPI.allCourses);
+  }
+
+  static Future<HttpResult> getAllLessons() async {
+    return await _get(ListAPI.allLesssons);
+  }
+
+  static Future<HttpResult> getAllFiles() async {
+    return await _get(
+      ListAPI.allfiles,
+    );
   }
 
   static Future<HttpResult> _post(
@@ -130,43 +141,6 @@ class ApiService {
         statusCode: response.statusCode,
         // result: decoded['message'].toString(),
         result: decoded.toString(),
-        path: path,
-        method: 'GET',
-      );
-    } catch (err) {
-      return HttpResult(
-        statusCode: -1,
-        result: err,
-        path: path,
-        method: 'GET',
-      );
-    }
-  }
-
-  static Future<HttpResult> _getWithoutBaseUrl(String path) async {
-    Uri url = Uri.parse(path);
-    try {
-      http.Response response = await http
-          .get(
-            url,
-            headers: _header(),
-          )
-          .timeout(const Duration(seconds: 30));
-      HttpInspector.onResponse(response);
-      var decoded = jsonDecode(response.body);
-      if (response.statusCode == 200) {
-        return HttpResult(
-          statusCode: 200,
-          isSuccess: true,
-          result: decoded,
-        );
-      }
-      if (response.statusCode == 401) {
-        // Unauthorized().onLogoutPresssed();
-      }
-      return HttpResult(
-        statusCode: response.statusCode,
-        result: decoded['message'].toString(),
         path: path,
         method: 'GET',
       );

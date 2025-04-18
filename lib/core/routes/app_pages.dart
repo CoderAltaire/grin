@@ -37,7 +37,12 @@ class RouteGenerate {
       case AppRoutes.myResults:
         return simpleRoute(const MyResultsScreen());
       case AppRoutes.streamvideo:
-        return simpleRoute(StreamingVideoPage());
+        if (args is String) {
+          return simpleRoute(StreamingVideoPage());
+        } else {
+          throw Exception(
+              "Video URL is required as a String for streamvideo route");
+        }
 
       // case AppRoutes.myAddresses:
       //   return MaterialPageRoute(

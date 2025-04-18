@@ -27,10 +27,9 @@ class LoginCubit extends Cubit<LoginState> {
         user_password: password,
         user_role: data['role'] ?? "no data",
       );
-
+      print(result.result.toString());
       HiveBoxes.userDatas.put(phone, userDataModel);
       HiveBoxes.acces_token.put('acces_token', result.result['token']);
-      print(HiveBoxes.acces_token.isNotEmpty);
 
       emit(state.copyWith(phone: phone, status: Status.SUCCESS));
     } else {

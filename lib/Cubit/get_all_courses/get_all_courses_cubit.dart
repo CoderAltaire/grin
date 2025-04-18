@@ -4,6 +4,7 @@ import 'package:grin/core/api/main_app/api_service.dart';
 import 'package:grin/core/api/main_app/http_result.dart';
 import 'package:grin/core/constants/constants.dart';
 import 'package:grin/core/error/failure.dart';
+import 'package:grin/model/allfiles_model.dart';
 
 part 'get_all_courses_state.dart';
 part 'get_all_courses_cubit.freezed.dart';

@@ -1,3 +1,4 @@
+import 'package:grin/Cubit/cubit/get_all_files_cubit.dart';
 import 'package:grin/Cubit/get_all_courses/get_all_courses_cubit.dart';
 import 'package:grin/core/api/main_app/api_service.dart';
 import 'package:grin/core/routes/imports.dart';
@@ -39,6 +40,16 @@ class _MainScreenState extends State<MainScreen>
   Widget build(BuildContext context) {
     return BlocBuilder<MainTabCubit, MainTabState>(builder: (context, state) {
       return Scaffold(
+        floatingActionButton: BlocConsumer<GetAllFilesCubit, GetAllFilesState>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            return FloatingActionButton(
+              onPressed: () {
+                context.read<GetAllFilesCubit>().getAllFiles();
+              },
+            );
+          },
+        ),
         appBar: AppBar(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.end,

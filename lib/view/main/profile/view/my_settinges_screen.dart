@@ -373,6 +373,8 @@ class _MySettingsScreenState extends State<MySettingsScreen> {
     );
   }
 
+  /// Picks an image from the gallery, saves it locally, updates the selected
+  /// image state, and stores the image path in Hive storage under 'profilePhoto'.
   Future pickImageFromGallery() async {
     final returnedImage =
         await ImagePicker().pickImage(source: ImageSource.gallery);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grin/Cubit/Login/login_cubit.dart';
+import 'package:grin/Cubit/cubit/get_all_files_cubit.dart';
 import 'package:grin/Cubit/get_all_courses/get_all_courses_cubit.dart';
 import 'package:grin/core/service/local_data_sources/hive_class.dart';
 import 'package:grin/core/service/local_data_sources/hive_names.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ProfileCubit()),
         BlocProvider(create: (context) => MainTabCubit()),
         BlocProvider(create: (context) => LoginCubit()),
+        BlocProvider(create: (context) => GetAllFilesCubit()),
         BlocProvider(
           create: (context) => GetAllCoursesCubit(),
         )

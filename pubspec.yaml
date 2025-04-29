@@ -39,6 +39,7 @@ dependencies:
   chewie: ^1.11.1
   build_runner: ^2.4.15
   path: ^1.9.1
+  flutter_kinescope_sdk: ^0.2.3
 
 dev_dependencies:
   freezed: ^2.5.2

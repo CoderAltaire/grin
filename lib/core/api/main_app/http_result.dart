@@ -16,7 +16,6 @@ class HttpResult {
     this.method = 'POST',
   }) {
     if (isSuccess) return;
-
     if (result is SocketException) return;
     if (result is TimeoutException) return;
     if (path.contains('/seen_news')) return;

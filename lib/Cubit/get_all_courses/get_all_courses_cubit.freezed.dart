@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$GetAllCoursesState {
   Status get status => throw _privateConstructorUsedError;
   Failure get failure => throw _privateConstructorUsedError;
+  AllCourses? get allCourses => throw _privateConstructorUsedError;
 
   /// Create a copy of GetAllCoursesState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +33,7 @@ abstract class $GetAllCoursesStateCopyWith<$Res> {
           GetAllCoursesState value, $Res Function(GetAllCoursesState) then) =
       _$GetAllCoursesStateCopyWithImpl<$Res, GetAllCoursesState>;
   @useResult
-  $Res call({Status status, Failure failure});
+  $Res call({Status status, Failure failure, AllCourses? allCourses});
 }
 
 /// @nodoc
@@ -52,6 +53,7 @@ class _$GetAllCoursesStateCopyWithImpl<$Res, $Val extends GetAllCoursesState>
   $Res call({
     Object? status = null,
     Object? failure = null,
+    Object? allCourses = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -62,6 +64,10 @@ class _$GetAllCoursesStateCopyWithImpl<$Res, $Val extends GetAllCoursesState>
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Failure,
+      allCourses: freezed == allCourses
+          ? _value.allCourses
+          : allCourses // ignore: cast_nullable_to_non_nullable
+              as AllCourses?,
     ) as $Val);
   }
 }
@@ -74,7 +80,7 @@ abstract class _$$GetAllCoursesStateImplCopyWith<$Res>
       __$$GetAllCoursesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status status, Failure failure});
+  $Res call({Status status, Failure failure, AllCourses? allCourses});
 }
 
 /// @nodoc
@@ -92,6 +98,7 @@ class __$$GetAllCoursesStateImplCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? failure = null,
+    Object? allCourses = freezed,
   }) {
     return _then(_$GetAllCoursesStateImpl(
       status: null == status
@@ -102,6 +109,10 @@ class __$$GetAllCoursesStateImplCopyWithImpl<$Res>
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as Failure,
+      allCourses: freezed == allCourses
+          ? _value.allCourses
+          : allCourses // ignore: cast_nullable_to_non_nullable
+              as AllCourses?,
     ));
   }
 }
@@ -110,7 +121,9 @@ class __$$GetAllCoursesStateImplCopyWithImpl<$Res>
 
 class _$GetAllCoursesStateImpl implements _GetAllCoursesState {
   const _$GetAllCoursesStateImpl(
-      {this.status = Status.UNKNOWN, this.failure = const UnknownFailure()});
+      {this.status = Status.UNKNOWN,
+      this.failure = const UnknownFailure(),
+      this.allCourses});
 
   @override
   @JsonKey()
@@ -118,10 +131,12 @@ class _$GetAllCoursesStateImpl implements _GetAllCoursesState {
   @override
   @JsonKey()
   final Failure failure;
+  @override
+  final AllCourses? allCourses;
 
   @override
   String toString() {
-    return 'GetAllCoursesState(status: $status, failure: $failure)';
+    return 'GetAllCoursesState(status: $status, failure: $failure, allCourses: $allCourses)';
   }
 
   @override
@@ -130,11 +145,13 @@ class _$GetAllCoursesStateImpl implements _GetAllCoursesState {
         (other.runtimeType == runtimeType &&
             other is _$GetAllCoursesStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.failure, failure) || other.failure == failure));
+            (identical(other.failure, failure) || other.failure == failure) &&
+            (identical(other.allCourses, allCourses) ||
+                other.allCourses == allCourses));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, failure);
+  int get hashCode => Object.hash(runtimeType, status, failure, allCourses);
 
   /// Create a copy of GetAllCoursesState
   /// with the given fields replaced by the non-null parameter values.
@@ -148,12 +165,16 @@ class _$GetAllCoursesStateImpl implements _GetAllCoursesState {
 
 abstract class _GetAllCoursesState implements GetAllCoursesState {
   const factory _GetAllCoursesState(
-      {final Status status, final Failure failure}) = _$GetAllCoursesStateImpl;
+      {final Status status,
+      final Failure failure,
+      final AllCourses? allCourses}) = _$GetAllCoursesStateImpl;
 
   @override
   Status get status;
   @override
   Failure get failure;
+  @override
+  AllCourses? get allCourses;
 
   /// Create a copy of GetAllCoursesState
   /// with the given fields replaced by the non-null parameter values.

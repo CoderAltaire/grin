@@ -38,7 +38,11 @@ android {
         }
     }
 }
-
+dependencies {
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'  // ExoPlayer
+    implementation 'com.google.android.exoplayer:exoplayer-hls:2.19.1'  // HLS formatini qo'llab-quvvatlash
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
 flutter {
     source = "../.."
 }

@@ -5,5 +5,6 @@ class GetAllCoursesState with _$GetAllCoursesState {
   const factory GetAllCoursesState({
     @Default(Status.UNKNOWN) Status status,
     @Default(UnknownFailure()) Failure failure,
+    AllCourses? allCourses,
   }) = _GetAllCoursesState;
 }

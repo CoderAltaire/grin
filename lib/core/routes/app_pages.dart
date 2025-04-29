@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:grin/core/extension/log.dart';
 import 'package:grin/core/routes/imports.dart';
+import 'package:grin/video_player_test.dart';
 import 'package:grin/video_streaming.dart';
 
 Future<String?> path(String? path) async {
@@ -28,6 +29,7 @@ class RouteGenerate {
 
       case AppRoutes.login:
         return simpleRoute(const LoginScreen());
+
       case AppRoutes.selectLanguage:
         return simpleRoute(const SelectLgScreen());
       case AppRoutes.homeScreen:
@@ -37,12 +39,13 @@ class RouteGenerate {
       case AppRoutes.myResults:
         return simpleRoute(const MyResultsScreen());
       case AppRoutes.streamvideo:
-        if (args is String) {
-          return simpleRoute(StreamingVideoPage());
-        } else {
-          throw Exception(
-              "Video URL is required as a String for streamvideo route");
-        }
+        return simpleRoute(
+          StreamingVideoPage(),
+        );
+      case AppRoutes.videoPlayerTest:
+        return simpleRoute(
+          VideoPlayerScreen(),
+        );
 
       // case AppRoutes.myAddresses:
       //   return MaterialPageRoute(

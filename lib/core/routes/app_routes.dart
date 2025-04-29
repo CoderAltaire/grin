@@ -9,4 +9,5 @@ class AppRoutes {
   static const String mainScreen = "mainScreen";
   static const String myResults = "myResults";
   static const String streamvideo = "streamvideo";
+  static const String videoPlayerTest = "videoPlayerTest";
 }

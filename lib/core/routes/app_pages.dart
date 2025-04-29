@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:grin/core/extension/log.dart';
 import 'package:grin/core/routes/imports.dart';
 import 'package:grin/video_player_test.dart';
-import 'package:grin/video_streaming.dart';
 
 Future<String?> path(String? path) async {
   "PATH: $path".printf(name: "MessagingService");
@@ -38,10 +37,7 @@ class RouteGenerate {
         return simpleRoute(const MainScreen());
       case AppRoutes.myResults:
         return simpleRoute(const MyResultsScreen());
-      case AppRoutes.streamvideo:
-        return simpleRoute(
-          StreamingVideoPage(),
-        );
+
       case AppRoutes.videoPlayerTest:
         return simpleRoute(
           VideoPlayerScreen(),
